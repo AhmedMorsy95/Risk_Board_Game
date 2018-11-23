@@ -96,16 +96,16 @@ public abstract class Player {
     		 /// attackers soldiers die
     		 one.removeSoldiers(from, a);
     	 }
-    	  GameSimulator.status = new MatchStatus(a,b,from,to,true,result,invade);
+    	  GameSimulator.status = new MatchStatus(a,b,from,to,result,invade);
      }
      boolean fight(int a,int b) { /// determines if i win the fight , simulates dice throwing
     	 ArrayList<Integer> x =  new ArrayList<Integer>();
     	 ArrayList<Integer> y =  new ArrayList<Integer>();
     	 
-    	 for(int i = 0;i < a; i++)
+    	 for(int i = 0; i < a ; i++)
     		 x.add(new Random().nextInt(6)+1);
     	 
-    	 for(int i = 0;i < b;i++)
+    	 for(int i = 0; i < b ; i++)
     		 y.add(new Random().nextInt(6)+1);
     	 
     	 Collections.sort(x);

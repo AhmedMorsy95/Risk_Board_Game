@@ -40,6 +40,6 @@ public class Passive extends Player {
 
 	@Override
 	public void startAttack(Player opponent, int mapSz) {
-            GameSimulator.status.didAttack = false;
+		/* Poor Agent that has no attacks. */
 	}
 }
