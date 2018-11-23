@@ -58,21 +58,6 @@ public class Aggressive extends Player {
             int k2 = 1;
             fightStart(this, opponent, k1, k2, attackFrom, attackTo);
         }
-        else {
-        	GameSimulator.status.didAttack = false;
-        	/*
-          	System.out.print("cannot find a suitable attack\n");
-            for(int i=0;i<27;i++) {
-            	System.out.print(this.soldier_of_each_territory[i] + " ");
-            }
-            System.out.println();
-            for(int i=0;i<27;i++) {
-            	System.out.print(opponent.soldier_of_each_territory[i] + " ");
-            }
-            System.out.println();
-            */
-        }
-        
     }
 
     @Override

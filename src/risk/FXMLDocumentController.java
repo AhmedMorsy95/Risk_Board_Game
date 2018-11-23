@@ -305,12 +305,12 @@ public class FXMLDocumentController implements Initializable {
                 +  "To: " + GameSimulator.status.to + "\r\n"
                 +  "didAttackerInvade: " + GameSimulator.status.didAttackerInvade + "\r\n"
                 +  "didAttackerWin: " + GameSimulator.status.didAttackerWin + "\r\n"
-                ); /*
+                ); 
         for(int i = 0; i < riskEgy.first.soldier_of_each_territory.length; i++)
             System.out.print(riskEgy.first.soldier_of_each_territory[i] + " ");
         System.out.println(" ");
         for(int i : riskEgy.second.soldier_of_each_territory)
-            System.out.print(riskEgy.second.soldier_of_each_territory[i] +" ");     */   
+            System.out.print(riskEgy.second.soldier_of_each_territory[i] +" ");        
     }
 }
 

@@ -13,17 +13,15 @@ public class MatchStatus {
      int from,to,soldiersFrom , soldiersTo;
      boolean didAttackerWin;
      boolean didAttackerInvade;
-     boolean didAttack;
      public MatchStatus() {
 	
      }
-     MatchStatus(int a,int b,int c,int d,boolean z,boolean x,boolean y){
+     MatchStatus(int a,int b,int c,int d,boolean x,boolean y){
     	 from = a;
     	 to = b;
     	 soldiersFrom = c;
     	 soldiersTo = d;
     	 didAttackerWin  = x;
     	 didAttackerInvade = y;
-    	 didAttack = z;
      }
 }
