@@ -110,7 +110,8 @@ public class Greedy extends Player {
 		int total = 0, maxHeuristic = -2000, hasOneSoldier = 0,index=-1;
 		for (int i = 0; i < a.territories.size(); i++) {
 			total = 0;
-			if (a.getSoldiers_from_territory(territories.get(i)) == 1) {
+			System.out.print(a.territories.size());
+			if (a.soldier_of_each_territory[a.territories.get(i)] == 1) {
 				hasOneSoldier = 1;
 			}
 			ArrayList<Integer> neighbours = AdjacencyMatrix.getNeighbours(a.territories.get(i), mapSz);
@@ -125,7 +126,7 @@ public class Greedy extends Player {
 				ArrayList<Integer> neighboursOfNeighbours = AdjacencyMatrix.getNeighbours(neighbours.get(j), mapSz);
 				int cnt = 0;
 				for (int k = 0; k < neighboursOfNeighbours.size(); k++) {
-					if (a.isMine(neighboursOfNeighbours.get(j))) {
+					if (a.isMine(neighboursOfNeighbours.get(k))) {
 						continue;
 					}
 					cnt++;
@@ -146,9 +147,10 @@ public class Greedy extends Player {
 	@Override
 	public void simulate_attack(Player opponent, int mapSz) {
 		int index =heuristic(opponent,  mapSz);
-		int attackFrom = -1 , attackTo = -1 ;
+		int attackFrom = -1 , attackTo = -1 , a = 0 , b = 0;
 		
 		for(int i=0;i<territories.size();i++) {
+			if(soldier_of_each_territory[territories.get(i)] == 1)continue;
 	        ArrayList<Integer> neighbours = AdjacencyMatrix.getNeighbours(territories.get(i), mapSz);
 	        for(int j=0;j<neighbours.size();j++) {
 	        	if(isMine(neighbours.get(j))) 
@@ -160,12 +162,16 @@ public class Greedy extends Player {
 	        	if(soldier_of_each_territory[territories.get(i)] >1) { //i want to find index of max heuritic and find a country in my territories that is neighbor to this country AND can attack it
 	        			attackFrom =territories.get(i) ;
 	        			attackTo = index; //index of max heuristic
-	        			
-	        		
 	        	
 	        }
 		}
 	}
+		if(attackFrom != -1) {
+			fightStart(this, opponent, Math.min(3, this.soldier_of_each_territory[attackFrom]-1), 1, attackFrom, attackTo);
+		}
+		else {
+			GameSimulator.status.didAttack = false;
+		}
 	}
 	@Override
 	public void startAttack(Player opponent, int mapSz) {

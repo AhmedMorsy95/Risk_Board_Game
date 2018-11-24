@@ -40,6 +40,9 @@ public class Aggressive extends Player {
         int attackFrom = -1, attackTo = -1, sz = 0;
 
         for (int i = 0; i < territories.size(); i++) {
+
+			if(soldier_of_each_territory[territories.get(i)] == 1)continue;
+			
             ArrayList<Integer> neighbours = AdjacencyMatrix.getNeighbours(territories.get(i), boardSize);
             for (int j = 0; j < neighbours.size(); j++) {
                 if (isMine(neighbours.get(j)) || soldier_of_each_territory[territories.get(i)] == 1) {
