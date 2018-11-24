@@ -6,7 +6,6 @@
 package risk;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import javafx.scene.paint.Color;
 
 /**
@@ -30,7 +29,8 @@ public class Greedy extends AIPlayer {
     	
     }
 
-    public void distribute_soldiers(int k, player opponent, int mapSz) {
+    @Override
+    public void distribute_soldiers(int k, Player opponent, int mapSz) {
         //get neighbors, sum BST of neighbors
         int[] BST = null;
         double[] BSR = null;
@@ -45,7 +45,7 @@ public class Greedy extends AIPlayer {
         // NBSR
         int countriesRatios[][] = new int[27][27];
         for (int i = 0; i < territories.size(); i++) {
-            ArrayList<Integer> neighbours = AdjacentyMatrix.getNeighbours(territories.get(i), mapSz);
+            ArrayList<Integer> neighbours = AdjacencyMatrix.getNeighbours(territories.get(i), mapSz);
             ArrayList<Integer> ellyGnby = new ArrayList<>();
             for (int j = 0; j < neighbours.size(); j++) { //for each country, find neighbors
                 if (isMine(neighbours.get(j))) //lw heya el neighbor bta3y msh 3ayezha
@@ -53,7 +53,7 @@ public class Greedy extends AIPlayer {
                     continue;
                 }
 
-                count += opponent.soldiers_of_each_territory[neighbours.get(j)];
+                count += opponent.soldier_of_each_territory[neighbours.get(j)];
                 if (BSTsz == 0) { //first element
                     BST[0] = count;
                     BSR[0] = BST[0] / (soldiers_of_each_territory[neighbours.get(j)]);
@@ -101,12 +101,12 @@ public class Greedy extends AIPlayer {
     }
 
     @Override
-    public void simulate_attack(player opponent, int mapSz) {
+    public void simulate_attack(Player opponent, int mapSz) {
       //in progress
     }
 
     @Override
-    public void startAttack(player opponent, int mapSz) {
+    public void startAttack(Player opponent, int mapSz) {
 		simulate_attack(opponent, mapSz);
     }
 
