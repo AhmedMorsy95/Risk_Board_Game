@@ -2,6 +2,7 @@ package risk;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Random;
 
 import javafx.scene.paint.Color;
@@ -62,7 +63,11 @@ public abstract class AIPlayer {
     	    	 territories.remove(i);
     	 }
      }
+<<<<<<< HEAD
      void fightStart(Player one,Player two,int a,int b,int from,int to) {
+=======
+     void fightStart(AIPlayer one,AIPlayer two,int a,int b,int from,int to) {
+>>>>>>> cb519f12dc25e93d93621944194eefd57345a176
     	 // starts fight where from attack to with a soldiers and to defends with b soldiers
     	 boolean result = fight(a,b);
     	 //System.out.print(from + " " + to + " " + a + " " + b + " " + result + "\n");
@@ -100,22 +105,30 @@ public abstract class AIPlayer {
     	 Collections.reverse(x);
     	 Collections.reverse(y);
     	 
-    	 if(x.get(0) != y.get(0)) {
+    	 if( !Objects.equals(x.get(0), y.get(0))) {
     		 return x.get(0) > y.get(0);
     	 }
     	 
     	 if(y.size() > 1) {
-    		 if(x.get(1) != y.get(1)) {
+    		 if( !Objects.equals(x.get(1), y.get(1))) {
     			 return x.get(1) > y.get(1);
     		 }
     	 }
     	 
     	 return false;
      }
+<<<<<<< HEAD
      public abstract void distribute_soldiers(int k,Player opponent,int mapSz) ; /// strategy depends on the agent
      
      public abstract void simulate_attack(Player opponent,int mapSz) ; /// strategy depends on agent
     
      public abstract void startAttack(Player opponent,int mapSz); // in case we want to make more than one attack
+=======
+     public abstract void distribute_soldiers(int k,AIPlayer opponent,int mapSz) ; /// strategy depends on the agent
+     
+     public abstract void simulate_attack(AIPlayer opponent,int mapSz) ; /// strategy depends on agent
+    
+     public abstract void startAttack(AIPlayer opponent,int mapSz); // in case we want to make more than one attack
+>>>>>>> cb519f12dc25e93d93621944194eefd57345a176
      
 }
