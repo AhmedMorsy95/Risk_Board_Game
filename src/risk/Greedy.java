@@ -29,12 +29,8 @@ public class Greedy extends AIPlayer {
     	
     }
 
-<<<<<<< HEAD
-    public void distribute_soldiers(int k, Player opponent, int mapSz) {
-=======
     @Override
     public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
->>>>>>> cb519f12dc25e93d93621944194eefd57345a176
         //get neighbors, sum BST of neighbors
         int[] BST = null;
         double[] BSR = null;
@@ -57,7 +53,7 @@ public class Greedy extends AIPlayer {
                     continue;
                 }
 
-                count += opponent.soldier_of_each_territory[neighbours.get(j)];
+                count += opponent.soldiers_of_each_territory[neighbours.get(j)];
                 if (BSTsz == 0) { //first element
                     BST[0] = count;
                     BSR[0] = BST[0] / (soldiers_of_each_territory[neighbours.get(j)]);
@@ -105,20 +101,12 @@ public class Greedy extends AIPlayer {
     }
 
     @Override
-<<<<<<< HEAD
-    public void simulate_attack(Player opponent, int mapSz) {
-=======
     public void simulate_attack(AIPlayer opponent, int mapSz) {
->>>>>>> cb519f12dc25e93d93621944194eefd57345a176
       //in progress
     }
 
     @Override
-<<<<<<< HEAD
-    public void startAttack(Player opponent, int mapSz) {
-=======
     public void startAttack(AIPlayer opponent, int mapSz) {
->>>>>>> cb519f12dc25e93d93621944194eefd57345a176
 		simulate_attack(opponent, mapSz);
     }
 
