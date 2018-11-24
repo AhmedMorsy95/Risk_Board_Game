@@ -7,6 +7,8 @@ package risk;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import application.SampleController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +24,7 @@ import javafx.scene.shape.Rectangle;
  */
 public class FXMLDocumentController implements Initializable {
 
-    GameSimulator riskEgy = new GameSimulator("Aggressive", "Aggressive", Player.EGYPT_TERRITORIES, 5);
+    GameSimulator riskEgy = new GameSimulator(SampleController.player1, SampleController.player2, Player.EGYPT_TERRITORIES, 5);
 
     @FXML
     private Button yallaButton;

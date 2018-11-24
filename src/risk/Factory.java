@@ -18,6 +18,11 @@ public class Factory { /// returns instance of the agent we want
         else if ("Aggressive".equals(s)) {
             return new Aggressive();
         }
+        else if ("Pacifist".equals(s)) {
+            return new Pacifist();
+        }
+        
+        
         return null;
     }
 }
