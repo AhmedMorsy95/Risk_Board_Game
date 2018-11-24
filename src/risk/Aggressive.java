@@ -68,4 +68,10 @@ public class Aggressive extends Player {
     public void startAttack(Player opponent, int mapSz) {
         simulate_attack(opponent, mapSz);
     }
+
+	@Override
+	public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
+		// TODO Auto-generated method stub
+		
+	}
 }

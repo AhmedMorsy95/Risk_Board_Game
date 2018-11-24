@@ -12,17 +12,17 @@ import javafx.scene.paint.Color;
  *
  * @author Nevine
  */
-public class Greedy extends AIPlayer {
+public class Greedy extends Player {
     Greedy(){ /// empty constructor
 		territories = new ArrayList<Integer>();
-		soldiers_of_each_territory = new int[55];
+		soldier_of_each_territory = new int[55];
 	}
 	
     Greedy(ArrayList<Integer> a , int all[] , int total , Color co){
     	territories = a;
     	turn = false;
     	for(int i=0;i<55;i++) {
-    		soldiers_of_each_territory[i] = all[i];
+    		soldier_of_each_territory[i] = all[i];
     		soldiers = total;
     		c = co;
     	}
@@ -56,14 +56,14 @@ public class Greedy extends AIPlayer {
                 count += opponent.soldiers_of_each_territory[neighbours.get(j)];
                 if (BSTsz == 0) { //first element
                     BST[0] = count;
-                    BSR[0] = BST[0] / (soldiers_of_each_territory[neighbours.get(j)]);
+                    BSR[0] = BST[0] / (soldier_of_each_territory[neighbours.get(j)]);
                     sumBSR += BSR[0];
                     stateIndex[0] = territories.get(j);
 
                 } else {
                     BSTsz += 1;
                     BST[BSTsz] = count; //array of BST for each state
-                    BSR[BSTsz] = BST[BSTsz] / (soldiers_of_each_territory[neighbours.get(j)]);
+                    BSR[BSTsz] = BST[BSTsz] / (soldier_of_each_territory[neighbours.get(j)]);
                     sumBSR += BSR[BSTsz];
                     stateIndex[BSTsz] = territories.get(j);
 
@@ -101,13 +101,19 @@ public class Greedy extends AIPlayer {
     }
 
     @Override
-    public void simulate_attack(AIPlayer opponent, int mapSz) {
+    public void simulate_attack(Player opponent, int mapSz) {
       //in progress
     }
 
     @Override
-    public void startAttack(AIPlayer opponent, int mapSz) {
+    public void startAttack(Player opponent, int mapSz) {
 		simulate_attack(opponent, mapSz);
     }
+
+	@Override
+	public void distribute_soldiers(int k) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

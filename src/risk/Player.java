@@ -127,6 +127,8 @@ public abstract class Player {
      }
      public abstract void distribute_soldiers(int k) ; /* Soldiers Distrubnce */
      
+     public abstract void distribute_soldiers(int k,AIPlayer opponent,int mapSz) ; /// strategy depends on the agent
+     
      public abstract void simulate_attack(Player opponent,int mapSz); /* Attack Simulation */
     
      public abstract void startAttack(Player opponent,int mapSz); /* More than 1 attack */

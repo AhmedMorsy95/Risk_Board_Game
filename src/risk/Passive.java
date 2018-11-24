@@ -42,4 +42,11 @@ public class Passive extends Player {
 	public void startAttack(Player opponent, int mapSz) {
 		GameSimulator.status.didAttack = false;
 	}
+
+
+	@Override
+	public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
+		// TODO Auto-generated method stub
+		
+	}
 }
