@@ -30,7 +30,7 @@ public class Greedy extends AIPlayer {
     }
 
     @Override
-    public void distribute_soldiers(int k, Player opponent, int mapSz) {
+    public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
         //get neighbors, sum BST of neighbors
         int[] BST = null;
         double[] BSR = null;
@@ -101,12 +101,12 @@ public class Greedy extends AIPlayer {
     }
 
     @Override
-    public void simulate_attack(Player opponent, int mapSz) {
+    public void simulate_attack(AIPlayer opponent, int mapSz) {
       //in progress
     }
 
     @Override
-    public void startAttack(Player opponent, int mapSz) {
+    public void startAttack(AIPlayer opponent, int mapSz) {
 		simulate_attack(opponent, mapSz);
     }
 
