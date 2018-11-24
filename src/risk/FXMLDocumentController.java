@@ -299,8 +299,15 @@ public class FXMLDocumentController implements Initializable {
 
     public void changeGameStatus(){
         gameStatus.clear();
-        gameStatus.appendText("Soldiers from: " + GameSimulator.status.soldiersFrom + "\r\n"
-                +  "Soldiers to: " + GameSimulator.status.soldiersTo + "\r\n"
+        if(GameSimulator.status.didAttack == false) {
+        	gameStatus.appendText("Couldnot attack");
+        	for(int i=0;i<27;i++) {
+        		
+        	}
+        	return;
+        }
+        gameStatus.appendText("Attacking Soldiers: " + GameSimulator.status.soldiersFrom + "\r\n"
+                +  "Defending Soldiers: " + GameSimulator.status.soldiersTo + "\r\n"
                 +  "From: " + GameSimulator.status.from + "\r\n"
                 +  "To: " + GameSimulator.status.to + "\r\n"
                 +  "didAttackerInvade: " + GameSimulator.status.didAttackerInvade + "\r\n"

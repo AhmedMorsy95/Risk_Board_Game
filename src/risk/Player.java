@@ -96,7 +96,7 @@ public abstract class Player {
     		 /// attackers soldiers die
     		 one.removeSoldiers(from, a);
     	 }
-    	  GameSimulator.status = new MatchStatus(a,b,from,to,result,invade);
+    	  GameSimulator.status = new MatchStatus(a,b,from,to,true,result,invade);
      }
      boolean fight(int a,int b) { /// determines if i win the fight , simulates dice throwing
     	 ArrayList<Integer> x =  new ArrayList<Integer>();

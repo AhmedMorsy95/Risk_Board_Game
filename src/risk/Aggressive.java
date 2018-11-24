@@ -58,6 +58,10 @@ public class Aggressive extends Player {
             int k2 = 1;
             fightStart(this, opponent, k1, k2, attackFrom, attackTo);
         }
+        else {
+        	GameSimulator.status.didAttack = false;
+        }
+        
     }
 
     @Override

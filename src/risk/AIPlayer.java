@@ -62,13 +62,13 @@ public abstract class AIPlayer {
     	    	 territories.remove(i);
     	 }
      }
-     void fightStart(player one,player two,int a,int b,int from,int to) {
+     void fightStart(Player one,Player two,int a,int b,int from,int to) {
     	 // starts fight where from attack to with a soldiers and to defends with b soldiers
     	 boolean result = fight(a,b);
     	 //System.out.print(from + " " + to + " " + a + " " + b + " " + result + "\n");
     	 if(result) {
     		 two.removeSoldiers(to, b);
-    		 if(two.soldiers_of_each_territory[to] == 0) { 
+    		 if(two.soldier_of_each_territory[to] == 0) { 
     		   	 /// remove it from the loser
     			 two.removeTerritory(to);
     			 /// add to to winner and add 1 soldier there
@@ -112,10 +112,10 @@ public abstract class AIPlayer {
     	 
     	 return false;
      }
-     public abstract void distribute_soldiers(int k,player opponent,int mapSz) ; /// strategy depends on the agent
+     public abstract void distribute_soldiers(int k,Player opponent,int mapSz) ; /// strategy depends on the agent
      
-     public abstract void simulate_attack(player opponent,int mapSz) ; /// strategy depends on agent
+     public abstract void simulate_attack(Player opponent,int mapSz) ; /// strategy depends on agent
     
-     public abstract void startAttack(player opponent,int mapSz); // in case we want to make more than one attack
+     public abstract void startAttack(Player opponent,int mapSz); // in case we want to make more than one attack
      
 }

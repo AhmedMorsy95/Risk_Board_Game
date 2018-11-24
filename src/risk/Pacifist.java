@@ -44,7 +44,6 @@ public class Pacifist extends Player {
                     continue;
                 }
 
-                if (soldier_of_each_territory[territories.get(i)] > opponent.soldier_of_each_territory[neighbours.get(j)]) {
                     if (sz > opponent.soldier_of_each_territory[neighbours.get(j)]) {
                         attackFrom = territories.get(i);
                         attackTo = neighbours.get(j);
@@ -52,11 +51,14 @@ public class Pacifist extends Player {
                     }
                 }
             }
-        }
+        
         if (sz < 10000) {
-            int k1 = Math.min(3, soldier_of_each_territory[attackFrom]);
+            int k1 = Math.min(3, soldier_of_each_territory[attackFrom]-1);
             int k2 = 1;
             fightStart(this, opponent, k1, k2, attackFrom, attackTo);
+        }
+        else {
+        	GameSimulator.status.didAttack = false;
         }
     }
 
