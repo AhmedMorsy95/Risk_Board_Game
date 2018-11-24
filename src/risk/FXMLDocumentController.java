@@ -5,6 +5,7 @@
  */
 package risk;
 
+import application.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,7 +24,6 @@ import javafx.scene.shape.Rectangle;
  * @author smsm
  */
 public class FXMLDocumentController implements Initializable {
-
     GameSimulator riskEgy = new GameSimulator(SampleController.player1, SampleController.player2, Player.EGYPT_TERRITORIES, 5);
 
     @FXML
@@ -309,11 +309,11 @@ public class FXMLDocumentController implements Initializable {
         	return;
         }
         gameStatus.appendText("Attacking Soldiers: " + GameSimulator.status.soldiersFrom + "\r\n"
-                +  "Defending Soldiers: " + GameSimulator.status.soldiersTo + "\r\n"
+                +  "Defending Soldiers:\n" + GameSimulator.status.soldiersTo + "\r\n"
                 +  "From: " + GameSimulator.status.from + "\r\n"
                 +  "To: " + GameSimulator.status.to + "\r\n"
-                +  "didAttackerInvade: " + GameSimulator.status.didAttackerInvade + "\r\n"
-                +  "didAttackerWin: " + GameSimulator.status.didAttackerWin + "\r\n"
+                +  "didAttackerInvade:\n " + GameSimulator.status.didAttackerInvade + "\r\n"
+                +  "didAttackerWin:\n " + GameSimulator.status.didAttackerWin + "\r\n"
                 ); /*
         for(int i = 0; i < riskEgy.first.soldier_of_each_territory.length; i++)
             System.out.print(riskEgy.first.soldier_of_each_territory[i] + " ");

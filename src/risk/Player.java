@@ -34,6 +34,9 @@ public abstract class Player {
      ArrayList<Integer> territories;
      int soldiers;
      Color c;
+     Player() {
+    	 
+     }
      
      int getBonusSoldiers() {
     	  return Math.max(territories.size()/3, 3);
@@ -75,7 +78,11 @@ public abstract class Player {
      }
      void removeTerritory(int country) {
     	 soldier_of_each_territory[country] = 0;
-         territories.remove(territories.indexOf(country));
+    	 for(int i=0;i<territories.size();i++) {
+    		 if(territories.get(i) == country) {
+    			 territories.remove(i);
+    		 }
+    	 }
      }
      void fightStart(Player one,Player two,int a,int b,int from,int to) {
     	 // starts fight where from attack to with a soldiers and to defends with b soldiers
@@ -113,7 +120,7 @@ public abstract class Player {
     	 Collections.reverse(x);
     	 Collections.reverse(y);
     	 
-    	 if( !Objects.equals(x.get(0), y.get(0))) {
+    	 if(x.get(0) !=  y.get(0)) {
     		 return x.get(0) > y.get(0);
     	 }
     	 
@@ -132,5 +139,5 @@ public abstract class Player {
      public abstract void simulate_attack(Player opponent,int mapSz); /* Attack Simulation */
     
      public abstract void startAttack(Player opponent,int mapSz); /* More than 1 attack */
-     
+    
 }

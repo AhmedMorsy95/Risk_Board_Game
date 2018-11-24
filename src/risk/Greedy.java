@@ -8,7 +8,7 @@ package risk;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import application.AdjacentyMatrix;
+import application.*;
 import javafx.scene.paint.Color;
 
 /**
@@ -170,6 +170,18 @@ public class Greedy extends Player {
 	@Override
 	public void startAttack(Player opponent, int mapSz) {
 		simulate_attack(opponent, mapSz);
+	}
+
+	@Override
+	public void distribute_soldiers(int k) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

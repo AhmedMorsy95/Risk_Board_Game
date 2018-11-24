@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class SampleController {
-    public static String player1 , player2;
+    public static String player1  , player2;
     @FXML
     private Button sim;
 
@@ -168,7 +168,7 @@ public class SampleController {
         app_stage.setScene(scene);
         app_stage.show();
     }
-
+    
     @FXML
     void ply2_minimax_button(ActionEvent event) throws IOException {
         player2 = "Minimax";
@@ -181,8 +181,9 @@ public class SampleController {
     
       @FXML
     void egyptSelected(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/risk/FXMLDocument.fxml"));
-        Scene scene = new Scene(root);
+    	Parent root = FXMLLoader.load(getClass().getResource("/risk/FXMLDocument.fxml"));
+            	
+    	Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();

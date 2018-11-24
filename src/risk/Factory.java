@@ -12,7 +12,8 @@ package risk;
 public class Factory { /// returns instance of the agent we want
 
     static Player getPlayer(String s) {
-        if ("passive".equals(s)) {
+    	System.out.print(s);
+        if ("Passive".equals(s)) {
             return new Passive();
         }
         else if ("Aggressive".equals(s)) {
@@ -21,6 +22,14 @@ public class Factory { /// returns instance of the agent we want
         else if ("Pacifist".equals(s)) {
             return new Pacifist();
         }
+        else if ("Greedy".equals(s)) {
+            return new Greedy();
+        }
+        else if ("Minimax".equals(s)) {
+            return new MiniMax();
+        }
+        
+        
         
         
         return null;

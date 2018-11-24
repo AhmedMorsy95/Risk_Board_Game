@@ -30,15 +30,19 @@ public class Pacifist extends Player {
                 index = territories.get(i);
             }
         }
+        if(index != -1)
         addSoldiers(index, numberOfSoldiers);
     }
 
     @Override
     public void simulate_attack(Player opponent, int boardSize) {
         int attackFrom = -1, attackTo = -1, sz = 10000;
-
+ 
         for (int i = 0; i < territories.size(); i++) {
             ArrayList<Integer> neighbours = AdjacencyMatrix.getNeighbours(territories.get(i), boardSize);
+            
+            if(soldier_of_each_territory[territories.get(i)] == 1)continue;
+            
             for (int j = 0; j < neighbours.size(); j++) {
                 if (isMine(neighbours.get(j))) {
                     continue;
