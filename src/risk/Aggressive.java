@@ -16,8 +16,9 @@ public class Aggressive extends Player {
     Aggressive() { ///  constructor
         territories = new ArrayList<Integer>();
         soldier_of_each_territory = new int[EGYPT_TERRITORIES];
-        for(int i = 0; i < soldier_of_each_territory.length;)
+        for (int i = 0; i < soldier_of_each_territory.length;) {
             soldier_of_each_territory[i++] = 0;
+        }
     }
 
     /*An aggressive agent, that always places all its bonus armies on the territory with
@@ -41,8 +42,10 @@ public class Aggressive extends Player {
 
         for (int i = 0; i < territories.size(); i++) {
 
-			if(soldier_of_each_territory[territories.get(i)] == 1)continue;
-			
+            if (soldier_of_each_territory[territories.get(i)] == 1) {
+                continue;
+            }
+
             ArrayList<Integer> neighbours = AdjacencyMatrix.getNeighbours(territories.get(i), boardSize);
             for (int j = 0; j < neighbours.size(); j++) {
                 if (isMine(neighbours.get(j)) || soldier_of_each_territory[territories.get(i)] == 1) {
@@ -60,11 +63,10 @@ public class Aggressive extends Player {
             int k1 = Math.min(3, soldier_of_each_territory[attackFrom] - 1);
             int k2 = 1;
             fightStart(this, opponent, k1, k2, attackFrom, attackTo);
+        } else {
+            GameSimulator.status.didAttack = false;
         }
-        else {
-        	GameSimulator.status.didAttack = false;
-        }
-        
+
     }
 
     @Override
@@ -72,9 +74,4 @@ public class Aggressive extends Player {
         simulate_attack(opponent, mapSz);
     }
 
-	@Override
-	public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
-		// TODO Auto-generated method stub
-		
-	}
 }

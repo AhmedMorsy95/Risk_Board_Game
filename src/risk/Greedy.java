@@ -184,10 +184,6 @@ public class Greedy extends Player {
 		
 	}
 
-	@Override
-	public void distribute_soldiers(int k, AIPlayer opponent, int mapSz) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

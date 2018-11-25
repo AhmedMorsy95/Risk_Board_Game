@@ -5,17 +5,20 @@
  */
 package risk;
 
-import application.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.SampleController;
-import javafx.event.ActionEvent;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
@@ -24,7 +27,32 @@ import javafx.scene.shape.Rectangle;
  * @author smsm
  */
 public class FXMLDocumentController implements Initializable {
+
     GameSimulator riskEgy = new GameSimulator(SampleController.player1, SampleController.player2, Player.EGYPT_TERRITORIES, 5);
+
+    @FXML
+    private Label turn2;
+    
+    @FXML
+    private Label turn1;
+    
+    @FXML
+    private ImageView dice2_1;
+
+    @FXML
+    private ImageView dice2_2;
+
+    @FXML
+    private ImageView dice2_3;
+    
+    @FXML
+    private ImageView dice1_1;
+
+    @FXML
+    private ImageView dice1_2;
+
+    @FXML
+    private ImageView dice1_3;
 
     @FXML
     private Button yallaButton;
@@ -149,13 +177,22 @@ public class FXMLDocumentController implements Initializable {
     private Circle attackingPoints[] = {circ0, circ1, circ2, circ3, circ4, circ5, circ6, circ7, circ8, circ9, circ10, circ11,
         circ12, circ13, circ14, circ15, circ16, circ17, circ18, circ19, circ20, circ21, circ22, circ23, circ24, circ25, circ26};
 
+    ArrayList<Image> dices = new ArrayList<>();
+
+    public void load() {
+        for (int i = 1; i <= 6; i++) {
+            dices.add(new Image(getClass().getResource(i + ".png").toExternalForm()));
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 
     @FXML
-    public void yalla(ActionEvent action) {
+    public void yalla(MouseEvent action) {
         riskEgy.play();
+        load();
         checkTheRectangles();
         changeGameStatus();
     }
@@ -298,29 +335,85 @@ public class FXMLDocumentController implements Initializable {
         }
 
     }
-
-    public void changeGameStatus(){
-        gameStatus.clear();
-        if(GameSimulator.status.didAttack == false) {
-        	gameStatus.appendText("Couldnot attack");
-        	for(int i=0;i<27;i++) {
-        		
-        	}
-        	return;
+    
+    @FXML
+    public void getNonNeighboursBlocked(MouseEvent event){
+        int idx = -1;
+        for(int i = 0; i < attackingPoints.length; i++)
+        if(event.getSource().equals(attackingPoints[i])){
+            idx = i;
+            break;
         }
+//        for(int i = 0; i < Player.EGYPT_TERRITORIES; i++)
+//            if()
+    }
+
+    public void changeGameStatus() {
+        gameStatus.clear();
+        if(GameSimulator.first.isMyTurn()){
+            turn2.setVisible(false);
+            turn1.setVisible(true);
+        }
+        else{
+            turn1.setVisible(false);
+            turn2.setVisible(true);
+        }
+        
+        dice1_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice1_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice1_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice2_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice2_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice2_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+
+        if (GameSimulator.status.didAttack == false) {
+            gameStatus.appendText("Couldn't attack");
+            for (int i = 0; i < 27; i++) {
+            }
+            return;
+        }
+
+        switch (GameSimulator.status.dice1.size()) {
+            case 3:
+                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
+                dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
+                dice1_3.setImage(dices.get(GameSimulator.status.dice1.get(2)));
+                break;
+            case 2:
+                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
+                dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
+                break;
+            case 1:
+                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
+                break;
+            default:
+                break;
+        }
+
+        switch (GameSimulator.status.dice2.size()) {
+            case 3:
+                dice2_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
+                dice2_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
+                dice2_3.setImage(dices.get(GameSimulator.status.dice1.get(2)));
+                break;
+            
+            case 2:
+                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)));
+                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(1)));
+                break;
+            case 1:
+                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)));
+                break;
+            default:
+                break;
+        }
+
         gameStatus.appendText("Attacking Soldiers: " + GameSimulator.status.soldiersFrom + "\r\n"
-                +  "Defending Soldiers:\n" + GameSimulator.status.soldiersTo + "\r\n"
-                +  "From: " + GameSimulator.status.from + "\r\n"
-                +  "To: " + GameSimulator.status.to + "\r\n"
-                +  "didAttackerInvade:\n " + GameSimulator.status.didAttackerInvade + "\r\n"
-                +  "didAttackerWin:\n " + GameSimulator.status.didAttackerWin + "\r\n"
-                ); /*
-        for(int i = 0; i < riskEgy.first.soldier_of_each_territory.length; i++)
-            System.out.print(riskEgy.first.soldier_of_each_territory[i] + " ");
-        System.out.println(" ");
-        for(int i : riskEgy.second.soldier_of_each_territory)
-            System.out.print(riskEgy.second.soldier_of_each_territory[i] +" ");     */   
+                + "Defending Soldiers:\n" + GameSimulator.status.soldiersTo + "\r\n"
+                + "From: " + GameSimulator.status.from + "\r\n"
+                + "To: " + GameSimulator.status.to + "\r\n"
+                + "didAttackerInvade:\n " + GameSimulator.status.didAttackerInvade + "\r\n"
+                + "didAttackerWin:\n " + GameSimulator.status.didAttackerWin + "\r\n"
+        );
     }
 }
-
-

@@ -14,13 +14,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: YELLOW;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <ImageView fitHeight="506.0" fitWidth="606.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@risk5.jpg" />
          </image>
       </ImageView>
       <Circle fill="#ffe91f" layoutX="121.0" layoutY="232.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label layoutX="80.0" layoutY="171.0" prefHeight="122.0" prefWidth="128.0" style="-fx-font-size: 20pt; -fx-font-weight: BOLD;" text="MAP" />
+      <Label layoutX="89.0" layoutY="213.0" prefHeight="33.0" prefWidth="64.0" style="-fx-font-size: 20pt; -fx-font-weight: BOLD;" text="MAP" />
       <ImageView fitHeight="42.0" fitWidth="64.0" layoutX="224.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@arrow2.jpg" />
@@ -31,8 +31,7 @@
             <Image url="@arrow2.jpg" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" text="Button" />
-      <Button blendMode="MULTIPLY" layoutX="300.0" layoutY="140.0" mnemonicParsing="false" onAction="#egyptSelected" prefHeight="73.0" prefWidth="137.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />
-      <Button blendMode="MULTIPLY" layoutX="300.0" layoutY="244.0" mnemonicParsing="false" onAction="#USASelected" prefHeight="73.0" prefWidth="137.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="USA" />
+      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="147.0" mnemonicParsing="false" onAction="#egyptSelected" prefHeight="39.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />
+      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="256.0" mnemonicParsing="false" onAction="#USASelected" prefHeight="57.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="USA" />
    </children>
 </Pane>

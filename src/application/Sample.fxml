@@ -15,43 +15,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<BorderPane prefHeight="491.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <center>
-      <Pane fx:id="gameMode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="615.0" style="-fx-background-color: YELLOW;">
+      <Pane fx:id="gameMode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: YELLOW;">
           <children>
-            <ImageView fx:id="riskimage" fitHeight="511.0" fitWidth="615.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="riskimage" fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@risk5.jpg" />
                </image>
             </ImageView>
             <Pane layoutX="99.0" layoutY="115.0" prefHeight="311.0" prefWidth="394.0">
                <children>
-                  <Circle fill="#fffd1f" layoutX="93.0" layoutY="148.0" radius="75.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Pane layoutY="16.0" prefHeight="231.0" prefWidth="214.0">
-                     <children>
-                        <Pane layoutX="39.0" layoutY="96.0" prefHeight="95.0" prefWidth="102.0">
-                           <children>
-                              <Label layoutX="-1.0" layoutY="26.0" text="GameMode">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </Pane>
-                  <ImageView fitHeight="40.0" fitWidth="77.0" layoutX="188.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+                  <Circle fill="#fffd1f" layoutX="53.0" layoutY="145.0" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="40.0" fitWidth="77.0" layoutX="143.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@arrow2.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="77.0" layoutX="188.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="77.0" layoutX="143.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@arrow2.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="sim" blendMode="MULTIPLY" layoutX="278.0" layoutY="119.0" mnemonicParsing="false" onAction="#simulationClicked" prefHeight="40.0" prefWidth="116.0" style="-fx-font-weight: BOLD; -fx-font-size: 13pt;" text="Simulation" />
-                  <Button fx:id="playingButton" blendMode="MULTIPLY" layoutX="278.0" layoutY="173.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" style="-fx-font-weight: BOLD; -fx-font-size: 15pt;" text="Playing" />
+                  <Button fx:id="sim" blendMode="MULTIPLY" layoutX="252.0" layoutY="99.0" mnemonicParsing="false" onAction="#simulationClicked" prefHeight="40.0" prefWidth="116.0" style="-fx-font-weight: BOLD; -fx-font-size: 13pt;" text="Simulation" />
+                  <Button fx:id="playingButton" blendMode="MULTIPLY" layoutX="252.0" layoutY="154.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="117.0" style="-fx-font-weight: BOLD; -fx-font-size: 15pt;" text="Playing" />
+                  <Label layoutX="18.0" layoutY="128.0" style="-fx-font-weight: Bold;" text="Mode" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
