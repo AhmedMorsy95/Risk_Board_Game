@@ -32,10 +32,10 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Label turn2;
-    
+
     @FXML
     private Label turn1;
-    
+
     @FXML
     private ImageView dice2_1;
 
@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private ImageView dice2_3;
-    
+
     @FXML
     private ImageView dice1_1;
 
@@ -117,8 +117,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Rectangle rec26 = new Rectangle();
 
-    private Rectangle countryLabels[] = {rec0, rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11,
-        rec12, rec13, rec14, rec15, rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26};
+    private Rectangle countryLabels[] = new Rectangle[27];
 
     @FXML
     public Circle circ0;
@@ -174,8 +173,8 @@ public class FXMLDocumentController implements Initializable {
     private Circle circ25;
     @FXML
     private Circle circ26;
-    private Circle attackingPoints[] = {circ0, circ1, circ2, circ3, circ4, circ5, circ6, circ7, circ8, circ9, circ10, circ11,
-        circ12, circ13, circ14, circ15, circ16, circ17, circ18, circ19, circ20, circ21, circ22, circ23, circ24, circ25, circ26};
+
+    private Circle attackingPoints[] = new Circle[27];
 
     ArrayList<Image> dices = new ArrayList<>();
 
@@ -183,6 +182,66 @@ public class FXMLDocumentController implements Initializable {
         for (int i = 1; i <= 6; i++) {
             dices.add(new Image(getClass().getResource(i + ".png").toExternalForm()));
         }
+    }
+
+    public void loadRect() {
+        countryLabels[0] = rec0;
+        countryLabels[1] = rec1;
+        countryLabels[2] = rec2;
+        countryLabels[3] = rec3;
+        countryLabels[4] = rec4;
+        countryLabels[5] = rec5;
+        countryLabels[6] = rec6;
+        countryLabels[7] = rec7;
+        countryLabels[8] = rec8;
+        countryLabels[9] = rec9;
+        countryLabels[10] = rec10;
+        countryLabels[11] = rec11;
+        countryLabels[12] = rec12;
+        countryLabels[13] = rec13;
+        countryLabels[14] = rec14;
+        countryLabels[15] = rec15;
+        countryLabels[16] = rec16;
+        countryLabels[17] = rec17;
+        countryLabels[18] = rec18;
+        countryLabels[19] = rec19;
+        countryLabels[20] = rec20;
+        countryLabels[21] = rec21;
+        countryLabels[22] = rec22;
+        countryLabels[23] = rec23;
+        countryLabels[24] = rec24;
+        countryLabels[25] = rec25;
+        countryLabels[26] = rec26;
+    }
+
+    public void loadCircles() {
+        attackingPoints[0] = circ0;
+        attackingPoints[1] = circ1;
+        attackingPoints[2] = circ2;
+        attackingPoints[3] = circ3;
+        attackingPoints[4] = circ4;
+        attackingPoints[5] = circ5;
+        attackingPoints[6] = circ6;
+        attackingPoints[7] = circ7;
+        attackingPoints[8] = circ8;
+        attackingPoints[9] = circ9;
+        attackingPoints[10] = circ10;
+        attackingPoints[11] = circ11;
+        attackingPoints[12] = circ12;
+        attackingPoints[13] = circ13;
+        attackingPoints[14] = circ14;
+        attackingPoints[15] = circ15;
+        attackingPoints[16] = circ16;
+        attackingPoints[17] = circ17;
+        attackingPoints[18] = circ18;
+        attackingPoints[19] = circ19;
+        attackingPoints[20] = circ20;
+        attackingPoints[21] = circ21;
+        attackingPoints[22] = circ22;
+        attackingPoints[23] = circ23;
+        attackingPoints[24] = circ24;
+        attackingPoints[25] = circ25;
+        attackingPoints[26] = circ26;
     }
 
     @Override
@@ -198,167 +257,59 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public void checkTheRectangles() {
-        if (riskEgy.first.getTerritories().contains(0)) {
-            rec0.setFill(riskEgy.first.getColor());
-        } else {
-            rec0.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(1)) {
-            rec1.setFill(riskEgy.first.getColor());
-        } else {
-            rec1.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(2)) {
-            rec2.setFill(riskEgy.first.getColor());
-        } else {
-            rec2.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(3)) {
-            rec3.setFill(riskEgy.first.getColor());
-        } else {
-            rec3.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(4)) {
-            rec4.setFill(riskEgy.first.getColor());
-        } else {
-            rec4.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(5)) {
-            rec5.setFill(riskEgy.first.getColor());
-        } else {
-            rec5.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(6)) {
-            rec6.setFill(riskEgy.first.getColor());
-        } else {
-            rec6.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(7)) {
-            rec7.setFill(riskEgy.first.getColor());
-        } else {
-            rec7.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(8)) {
-            rec8.setFill(riskEgy.first.getColor());
-        } else {
-            rec8.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(9)) {
-            rec9.setFill(riskEgy.first.getColor());
-        } else {
-            rec9.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(10)) {
-            rec10.setFill(riskEgy.first.getColor());
-        } else {
-            rec10.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(11)) {
-            rec11.setFill(riskEgy.first.getColor());
-        } else {
-            rec11.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(12)) {
-            rec12.setFill(riskEgy.first.getColor());
-        } else {
-            rec12.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(13)) {
-            rec13.setFill(riskEgy.first.getColor());
-        } else {
-            rec13.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(14)) {
-            rec14.setFill(riskEgy.first.getColor());
-        } else {
-            rec14.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(15)) {
-            rec15.setFill(riskEgy.first.getColor());
-        } else {
-            rec15.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(16)) {
-            rec16.setFill(riskEgy.first.getColor());
-        } else {
-            rec16.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(17)) {
-            rec17.setFill(riskEgy.first.getColor());
-        } else {
-            rec17.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(18)) {
-            rec18.setFill(riskEgy.first.getColor());
-        } else {
-            rec18.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(19)) {
-            rec19.setFill(riskEgy.first.getColor());
-        } else {
-            rec19.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(20)) {
-            rec20.setFill(riskEgy.first.getColor());
-        } else {
-            rec20.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(21)) {
-            rec21.setFill(riskEgy.first.getColor());
-        } else {
-            rec21.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(22)) {
-            rec22.setFill(riskEgy.first.getColor());
-        } else {
-            rec22.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(23)) {
-            rec23.setFill(riskEgy.first.getColor());
-        } else {
-            rec23.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(24)) {
-            rec24.setFill(riskEgy.first.getColor());
-        } else {
-            rec24.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(25)) {
-            rec25.setFill(riskEgy.first.getColor());
-        } else {
-            rec25.setFill(riskEgy.second.getColor());
-        }
-        if (riskEgy.first.getTerritories().contains(26)) {
-            rec26.setFill(riskEgy.first.getColor());
-        } else {
-            rec26.setFill(riskEgy.second.getColor());
-        }
 
-    }
-    
-    @FXML
-    public void getNonNeighboursBlocked(MouseEvent event){
-        int idx = -1;
-        for(int i = 0; i < attackingPoints.length; i++)
-        if(event.getSource().equals(attackingPoints[i])){
-            idx = i;
-            break;
+        loadRect();
+        for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+            if (riskEgy.first.getTerritories().contains(i)) {
+                countryLabels[i].setFill(riskEgy.first.getColor());
+            } else {
+                countryLabels[i].setFill(riskEgy.second.getColor());
+            }
+
         }
-//        for(int i = 0; i < Player.EGYPT_TERRITORIES; i++)
-//            if()
+    }
+
+    @FXML
+    public void getNonNeighboursBlocked(MouseEvent event) {
+        loadCircles();
+        System.out.println(attackingPoints.length);
+        int idx = -1;
+        for (int i = 0; i < attackingPoints.length; i++) {
+            if (event.getSource().equals(attackingPoints[i])) {
+                idx = i;
+            }
+        }
+        for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+            if (riskEgy.first.isMyTurn()) {
+                if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.first.isMine(i)) {
+                    attackingPoints[i].setDisable(false);
+                    attackingPoints[i].setVisible(true);
+                } else if (AdjacencyMatrix.egyptMap[idx][i] == 0) {
+                    attackingPoints[i].setDisable(true);
+                    attackingPoints[i].setVisible(false);
+                }
+            } else {
+                if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.second.isMine(i)) {
+                    attackingPoints[i].setDisable(false);
+                    attackingPoints[i].setVisible(true);
+                } else if (AdjacencyMatrix.egyptMap[idx][i] == 0) {
+                    attackingPoints[i].setDisable(true);
+                    attackingPoints[i].setVisible(false);
+                }
+            }
+        }
     }
 
     public void changeGameStatus() {
         gameStatus.clear();
-        if(GameSimulator.first.isMyTurn()){
+        if (GameSimulator.first.isMyTurn()) {
             turn2.setVisible(false);
             turn1.setVisible(true);
-        }
-        else{
+        } else {
             turn1.setVisible(false);
             turn2.setVisible(true);
         }
-        
+
         dice1_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
         dice1_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
         dice1_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
@@ -373,36 +324,36 @@ public class FXMLDocumentController implements Initializable {
             return;
         }
 
-        switch (GameSimulator.status.dice1.size()) {
+        switch (riskEgy.status.dice1.size()) {
             case 3:
-                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
-                dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
-                dice1_3.setImage(dices.get(GameSimulator.status.dice1.get(2)));
+                dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
+                dice1_2.setImage(dices.get(riskEgy.status.dice1.get(1)));
+                dice1_3.setImage(dices.get(riskEgy.status.dice1.get(2)));
                 break;
             case 2:
-                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
-                dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
+                dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
+                dice1_2.setImage(dices.get(riskEgy.status.dice1.get(1)));
                 break;
             case 1:
-                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
+                dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
                 break;
             default:
                 break;
         }
 
-        switch (GameSimulator.status.dice2.size()) {
+        switch (riskEgy.status.dice2.size()) {
             case 3:
-                dice2_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
-                dice2_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
-                dice2_3.setImage(dices.get(GameSimulator.status.dice1.get(2)));
+                dice2_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
+                dice2_2.setImage(dices.get(riskEgy.status.dice1.get(1)));
+                dice2_3.setImage(dices.get(riskEgy.status.dice1.get(2)));
                 break;
-            
+
             case 2:
-                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)));
-                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(1)));
+                dice2_1.setImage(dices.get(riskEgy.status.dice2.get(0)));
+                dice2_1.setImage(dices.get(riskEgy.status.dice2.get(1)));
                 break;
             case 1:
-                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)));
+                dice2_1.setImage(dices.get(riskEgy.status.dice2.get(0)));
                 break;
             default:
                 break;
