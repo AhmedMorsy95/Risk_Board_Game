@@ -3,9 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
+ * 
+ * 
+ *   goal test : done
+ *   comparator :  done
+ *   path : done 
+ *   limit depth : done
+ *   
+ */
+
 package risk;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 import java.util.Random;
 
@@ -15,6 +26,7 @@ import java.util.Random;
  */
 public class AggressiveVsAStar extends Player {
 
+	HashMap<Node, ParentPath> mp = new HashMap<>();
     AggressiveVsAStar() {
         territories = new ArrayList<Integer>();
         soldier_of_each_territory = new int[EGYPT_TERRITORIES];
@@ -37,8 +49,28 @@ public class AggressiveVsAStar extends Player {
     }
 
     @Override
-    public void startAttack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void startAttack(Player opponent, int mapSz) throws CloneNotSupportedException {
+        Node best = go(opponent,mapSz);
+        ParentPath p = null;
+        while(mp.containsKey(best)) {
+        	p = mp.get(best);
+        	best = p.parent;
+        }
+        /// we have the 2 chosen countries 
+        boolean didwin = false;
+        boolean didinvade = false;
+        boolean didAttack = true;
+
+        
+        	didwin = true;
+        	didinvade = true;
+        	opponent.removeTerritory(p.toAStar);
+        	this.addTerritory(p.toAStar, 1);
+        	this.removeSoldiers(p.fromAStar, 1);
+        	
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        GameSimulator.status = new MatchStatus(0,0,p.fromAStar,p.toAStar,didwin,didinvade,didAttack,tmp,tmp);
+        
     }
 
     int heuristic(Player a, Player b, int myTerritory, int attackTerritory, int mapSz) {
@@ -57,15 +89,21 @@ public class AggressiveVsAStar extends Player {
         return myHeuristic;
     }
 
-    public void go(Player aggressive, int mapSz) {
-        Node cur = new Node(this, aggressive, 0);
+    public Node go(Player aggressive, int mapSz) throws CloneNotSupportedException {
+        Node cur = new Node(this, aggressive, 0,1);
         PriorityQueue<Node> pq = new PriorityQueue<Node>();
-
+        Node ret = cur;
         pq.add(cur);
-
+        
         while (!pq.isEmpty()) {
             cur = pq.peek();
             pq.poll();
+            if(cur.cost >= ret.cost) {
+            	ret = cur;
+            }
+            //System.out.print(cur.cost + " " + cur.depth + "\n");
+            if(cur.depth == 3)continue;
+            
             int indexOfTerritory;
             for (int i = 0; i < cur.one.territories.size(); i++) {
                 indexOfTerritory = cur.one.territories.get(i);
@@ -75,10 +113,27 @@ public class AggressiveVsAStar extends Player {
                         continue;
                     }
                     int h = heuristic(cur.one, cur.two, indexOfTerritory, neighbours.get(j), mapSz);
-                    Player first = cur.one;
-                    Player second = cur.two;
-                    first.addTerritory(neighbours.get(j), 1);
+                    // problem
+                    Player first = new AggressiveVsAStar();
+                    first.c=cur.one.c;
+                    first.soldier_of_each_territory=cur.one.soldier_of_each_territory.clone();
+                    first.turn=cur.one.turn;
+                    first.soldiers=cur.one.soldiers;
+                    first.territories=(ArrayList<Integer>) cur.one.territories.clone();
+                    first.firstPlayerDice=(ArrayList<Integer>) cur.one.firstPlayerDice.clone();
+                    first.secondPlayerDice=(ArrayList<Integer>) cur.one.secondPlayerDice.clone();
+                    Player second = new Aggressive();
+                    second.c=cur.two.c;
+                    second.soldier_of_each_territory=cur.two.soldier_of_each_territory;
+                    second.turn=cur.two.turn;
+                    second.soldiers=cur.two.soldiers;
+                    second.territories=(ArrayList<Integer>)cur.two.territories.clone();
+                    second.firstPlayerDice=(ArrayList<Integer>)cur.two.firstPlayerDice.clone();
+                    second.secondPlayerDice=(ArrayList<Integer>)cur.two.secondPlayerDice.clone();
+                    //
                     first.removeSoldiers(indexOfTerritory, 1);
+                    first.addTerritory(neighbours.get(j), 1);
+                  //  System.out.println(first.territories.size() + " " + cur.one.territories.size());
                     second.removeTerritory(neighbours.get(j));
                     h++;
 
@@ -107,10 +162,12 @@ public class AggressiveVsAStar extends Player {
                         cur.two.removeSoldiers(attackFrom, 1);
                         cur.one.removeTerritory(attackTo);
                     }
-                    Node n = new Node(cur.one, cur.two, h);
+                    Node n = new Node(cur.one, cur.two, h,cur.depth+1);
                     pq.add(n);
+                    mp.put(n,new ParentPath(cur, indexOfTerritory, neighbours.get(j)) );
                 }
             }
         }
+        return ret;
     }
 }

@@ -23,9 +23,21 @@ public class GameSimulator {
     static MatchStatus status;
 
     GameSimulator(String a, String b, int nTerritories, int extra) {  /// constructor ,  sets the game initial conditions
-        first = Factory.getPlayer(a);
+    	
+    	first = Factory.getPlayer(a);
         second = Factory.getPlayer(b);
-        boardSize = nTerritories;
+        
+    	if(a == null) {
+        	if(b == "Aggressive") {
+        		first = new AggressiveVsAStar();
+        	}
+        }
+        if(b == null) { System.out.print(a);
+        	if(a == "Aggressive") {
+        		second = new AggressiveVsAStar();
+        	}
+        }
+    	boardSize = nTerritories;
         status = new MatchStatus();
         /// initial configuration
         first.turn = true;
@@ -41,7 +53,7 @@ public class GameSimulator {
         /// we are ready to play!
     }
 
-    void play() {  /// called by the gui , simulates one turn only
+    void play() throws CloneNotSupportedException {  /// called by the gui , simulates one turn only
         if (first.turn) {
             first.distribute_soldiers(first.getBonusSoldiers());
             first.startAttack(second, boardSize);

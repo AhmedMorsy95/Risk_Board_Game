@@ -25,7 +25,7 @@ import java.util.Random;
 
 import javafx.scene.paint.Color;
 
-public abstract class Player {
+public abstract class Player implements Cloneable{
 
     static final int EGYPT_TERRITORIES = 27;
     static final int USA_TERRITORIES = 50;
@@ -135,8 +135,10 @@ public abstract class Player {
         Collections.reverse(firstPlayerDice);
         Collections.reverse(secondPlayerDice);
 
+        if(firstPlayerDice.size() > 0 && secondPlayerDice.size() > 0) {
         if (firstPlayerDice.get(0) != secondPlayerDice.get(0)) {
             return firstPlayerDice.get(0) > secondPlayerDice.get(0);
+        }
         }
 
         if (secondPlayerDice.size() > 1) {
@@ -147,6 +149,17 @@ public abstract class Player {
 
         return false;
     }
+     protected Player clone() throws CloneNotSupportedException {
+    	Player cloneObject = (Player) super.clone();
+    	cloneObject.soldiers= this.soldiers;
+    	cloneObject.territories=this.territories;
+    	cloneObject.c = this.c;
+        cloneObject.soldier_of_each_territory=this.soldier_of_each_territory;
+        cloneObject.turn=this.turn;
+        cloneObject.firstPlayerDice=this.firstPlayerDice;
+        cloneObject.secondPlayerDice=this.secondPlayerDice;
+        return cloneObject;
+    }
 
     public abstract void distribute_soldiers(int k);
 
@@ -155,7 +168,7 @@ public abstract class Player {
     public abstract void simulate_attack(Player opponent, int mapSz);
 
     /* Attack Simulation */
-    public abstract void startAttack(Player opponent, int mapSz);
+    public abstract void startAttack(Player opponent, int mapSz) throws CloneNotSupportedException;
     /* More than 1 attack */
 
 }

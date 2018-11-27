@@ -27,8 +27,9 @@ import javafx.scene.shape.Rectangle;
  * @author smsm
  */
 public class FXMLDocumentController implements Initializable {
-
+    	
     GameSimulator riskEgy = new GameSimulator(SampleController.player1, SampleController.player2, Player.EGYPT_TERRITORIES, 5);
+
 
     @FXML
     private Label turn2;
@@ -190,7 +191,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    public void yalla(MouseEvent action) {
+    public void yalla(MouseEvent action) throws CloneNotSupportedException {
         riskEgy.play();
         load();
         checkTheRectangles();
@@ -372,8 +373,9 @@ public class FXMLDocumentController implements Initializable {
             }
             return;
         }
-
+/*
         switch (GameSimulator.status.dice1.size()) {
+        
             case 3:
                 dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
                 dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)));
@@ -386,6 +388,8 @@ public class FXMLDocumentController implements Initializable {
             case 1:
                 dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)));
                 break;
+            case 0: 
+            	break;
             default:
                 break;
         }
@@ -404,9 +408,11 @@ public class FXMLDocumentController implements Initializable {
             case 1:
                 dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)));
                 break;
+            case 0:
+            	break;
             default:
                 break;
-        }
+        }*/
 
         gameStatus.appendText("Attacking Soldiers: " + GameSimulator.status.soldiersFrom + "\r\n"
                 + "Defending Soldiers:\n" + GameSimulator.status.soldiersTo + "\r\n"

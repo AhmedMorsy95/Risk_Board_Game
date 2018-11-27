@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 public class SampleController {
     public static String player1  , player2;
+    
     @FXML
     private Button sim;
 
@@ -81,7 +82,6 @@ public class SampleController {
 
     @FXML
     void ply1_astars_button(ActionEvent event) throws IOException {
-        player1 = "A_Star";
     	Parent root = FXMLLoader.load(getClass().getResource("Player2Choice.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -151,7 +151,6 @@ public class SampleController {
 
     @FXML
     void ply2_astars_button(ActionEvent event) throws IOException {
-    	player2 = "A_Star";
     	Parent root = FXMLLoader.load(getClass().getResource("MapChoice.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
