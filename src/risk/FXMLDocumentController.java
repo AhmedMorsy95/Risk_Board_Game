@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//For the damaged *code* :(
 package risk;
 
 import java.net.URL;
@@ -27,10 +28,10 @@ import javafx.scene.shape.Rectangle;
  * @author smsm
  */
 public class FXMLDocumentController implements Initializable {
-    	
+
     GameSimulator riskEgy = new GameSimulator(SampleController.player1, SampleController.player2, Player.EGYPT_TERRITORIES, 5);
 
-
+    private boolean modeChoice = false;
     @FXML
     private Label turn2;
 
@@ -250,10 +251,12 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    public void yalla(MouseEvent action) throws CloneNotSupportedException {
+    public void yalla(MouseEvent action) {
         riskEgy.play();
         load();
         checkTheRectangles();
+        loadCircles();
+        getMyCirclesVisible();
         changeGameStatus();
     }
 
@@ -269,36 +272,113 @@ public class FXMLDocumentController implements Initializable {
 
         }
     }
+//if it my turn -> disable circles that are not mine, but visible 3ady
+    //modes:
+    //first step -> i should get the event handler for the first time
+//: my turn, enable all my circles + visible, disable the circles of the other player and set visible false for other player then mode switch
+    //second step:!visible my circles and !disable mine,el opponent shayef el circles bto3oh and disable = false
+
+    public void getMyCirclesVisible() {
+        if (riskEgy.first.isMyTurn()) {
+            //     if (!modeChoice) {
+            for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                if (riskEgy.first.isMine(i)) {
+                    attackingPoints[i].setVisible(true);
+                    attackingPoints[i].setDisable(false);
+                } else {
+                    attackingPoints[i].setVisible(false);
+                    attackingPoints[i].setDisable(true);
+                }
+            }
+        } else {
+           
+            for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                if (riskEgy.second.isMine(i)) {
+                    attackingPoints[i].setVisible(true);
+                    attackingPoints[i].setDisable(false);
+                } else {
+                    attackingPoints[i].setVisible(false);
+                    attackingPoints[i].setDisable(true);
+                }
+            }
+           
+        }
+    } // <3 :( Fuck my life
+    //on rolling dice: visible my countires that i can attack from s7
+    //if my turn: if mode choice = 0, click on circle, mode =1; set circle visibility to false, disable = true, enable circles i can attack
 
     @FXML
     public void getNonNeighboursBlocked(MouseEvent event) {
-        loadCircles();
-        System.out.println(attackingPoints.length);
-        int idx = -1;
+
+        int idx = -1, tempIndex = -1;
         for (int i = 0; i < attackingPoints.length; i++) {
             if (event.getSource().equals(attackingPoints[i])) {
                 idx = i;
             }
         }
-        for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-            if (riskEgy.first.isMyTurn()) {
-                if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.first.isMine(i)) {
-                    attackingPoints[i].setDisable(false);
-                    attackingPoints[i].setVisible(true);
-                } else if (AdjacencyMatrix.egyptMap[idx][i] == 0) {
-                    attackingPoints[i].setDisable(true);
-                    attackingPoints[i].setVisible(false);
+        if (riskEgy.first.isMyTurn()) {
+            if (!modeChoice) {
+                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                    if (riskEgy.first.isMine(i)) {
+                        attackingPoints[i].setVisible(false);
+                        attackingPoints[i].setDisable(true);
+                    }
                 }
+                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                    if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.first.isMine(i)) {
+                        attackingPoints[i].setVisible(true);
+                        attackingPoints[i].setDisable(false);
+                    } else {
+                        attackingPoints[i].setVisible(false);
+                        attackingPoints[i].setDisable(true);
+                    }
+                }
+                tempIndex = idx;
+                modeChoice = true;
             } else {
-                if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.second.isMine(i)) {
-                    attackingPoints[i].setDisable(false);
-                    attackingPoints[i].setVisible(true);
-                } else if (AdjacencyMatrix.egyptMap[idx][i] == 0) {
-                    attackingPoints[i].setDisable(true);
-                    attackingPoints[i].setVisible(false);
+                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                    if (!(i == tempIndex || i == idx)) {
+                        attackingPoints[i].setVisible(false);
+                        attackingPoints[i].setDisable(true);
+                    }
                 }
+                modeChoice = false;
             }
+
+        } else {
+            if (!modeChoice) {
+                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                    if (riskEgy.second.isMine(i)) {
+                        attackingPoints[i].setVisible(false);
+                        attackingPoints[i].setDisable(true);
+                    }
+                }
+                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                    if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.second.isMine(i)) {
+                        attackingPoints[i].setVisible(true);
+                        attackingPoints[i].setDisable(false);
+                    } else {
+                        attackingPoints[i].setVisible(false);
+                        attackingPoints[i].setDisable(true);
+                    }
+                }
+                tempIndex = idx;
+                modeChoice = true;
+            } else {
+                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                    if (!(i == tempIndex || i == idx)) {
+                        attackingPoints[i].setVisible(false);
+                        attackingPoints[i].setDisable(true);
+                    }
+                }
+                modeChoice = false;
+            }
+
         }
+        //if it my turn -> disable circles that are not mine, but visible 3ady
+        //modes:
+        //first step: my turn, enable all my circles + visible, disable the circles of the other player and set visible false for other player then mode switch
+        //second step:!visible my circles and !disable mine,el opponent shayef el circles bto3oh and disable = false
     }
 
     public void changeGameStatus() {
@@ -324,9 +404,7 @@ public class FXMLDocumentController implements Initializable {
             }
             return;
         }
-/*
-        switch (GameSimulator.status.dice1.size()) {
-        
+
         switch (riskEgy.status.dice1.size()) {
             case 3:
                 dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
@@ -340,8 +418,6 @@ public class FXMLDocumentController implements Initializable {
             case 1:
                 dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
                 break;
-            case 0: 
-            	break;
             default:
                 break;
         }
@@ -355,16 +431,14 @@ public class FXMLDocumentController implements Initializable {
 
             case 2:
                 dice2_1.setImage(dices.get(riskEgy.status.dice2.get(0)));
-                dice2_1.setImage(dices.get(riskEgy.status.dice2.get(1)));
+                dice2_2.setImage(dices.get(riskEgy.status.dice2.get(1)));
                 break;
             case 1:
                 dice2_1.setImage(dices.get(riskEgy.status.dice2.get(0)));
                 break;
-            case 0:
-            	break;
             default:
                 break;
-        }*/
+        }
 
         gameStatus.appendText("Attacking Soldiers: " + GameSimulator.status.soldiersFrom + "\r\n"
                 + "Defending Soldiers:\n" + GameSimulator.status.soldiersTo + "\r\n"

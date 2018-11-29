@@ -23,7 +23,7 @@ public class Factory { /// returns instance of the agent we want
                 case "Greedy":
                     return new Greedy();
                 case "Minimax":
-                    return new MiniMax(); 	
+                    return new MiniMax();
                 default:
                     break;
             }
