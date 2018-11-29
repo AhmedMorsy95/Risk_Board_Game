@@ -38,7 +38,7 @@ public abstract class Player {
     ArrayList<Integer> secondPlayerDice = new ArrayList<Integer>();
     
     /// aho ya hassan
-    int myDice , opponentDice , distributeIndex , attackFromIndex , attackToIndex;
+    public static int myDice = -1 , opponentDice = -1 , distributeIndex = -1 , attackFromIndex = -1 , attackToIndex = -1;
     ///
     int getBonusSoldiers() {
         return Math.max(territories.size() / 3, 3);
@@ -149,7 +149,7 @@ public abstract class Player {
 
     public abstract void distribute_soldiers(int k);
     
-    public abstract void distribute_soldiers(int k,int distributeIndex) ;
+    public abstract void distribute_soldiers(int k,Player a);
     /* Soldiers Distrubnce */
     /// strategy depends on the agent
     public abstract void simulate_attack(Player opponent, int mapSz);

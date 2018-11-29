@@ -26,12 +26,20 @@ public class Human extends Player {
 
     @Override
     public void simulate_attack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if(this.myDice > 0)
+                fightStart(this,opponent,this.myDice,this.opponentDice,this.attackFromIndex,this.attackToIndex);
+            else
+                GameSimulator.status.didAttack = false;
     }
 
     @Override
     public void startAttack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        simulate_attack(opponent,mapSz);
+    }
+
+    @Override
+    public void distribute_soldiers(int k, Player a) {
+        addSoldiers(k,a.distributeIndex);
     }
     
     

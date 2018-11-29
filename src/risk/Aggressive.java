@@ -74,4 +74,10 @@ public class Aggressive extends Player {
         simulate_attack(opponent, mapSz);
     }
 
+
+    @Override
+    public void distribute_soldiers(int k, Player a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

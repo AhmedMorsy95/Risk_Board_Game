@@ -27,7 +27,7 @@ public class Factory { /// returns instance of the agent we want
                 case "A_Star":
                 	return new AggressiveVsAStar();
                 case "Human":
-                	return new HumanAgent();
+                	return new Human();
                 default:
                     break;
             }

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: YELLOW;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: YELLOW;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
       <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -31,7 +26,7 @@
             <Image url="@arrow2.jpg" />
          </image>
       </ImageView>
-      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="147.0" mnemonicParsing="false" onAction="#egyptSelected" prefHeight="39.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />
-      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="256.0" mnemonicParsing="false" onAction="#USASelected" prefHeight="57.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="USA" />
+      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="147.0" mnemonicParsing="false" onAction="#egyptSelectedSimulation" prefHeight="39.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />
+      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="256.0" mnemonicParsing="false" onAction="#USASelectedSimulation" prefHeight="57.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="USA" />
    </children>
 </Pane>

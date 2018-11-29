@@ -175,10 +175,9 @@ public class MiniMax extends Player {
         }
     }
 
-	@Override
-	public void distribute_soldiers(int k, int distributeIndex) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void distribute_soldiers(int k, Player a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

@@ -17,8 +17,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -32,6 +34,9 @@ public class FXMLDocumentController implements Initializable {
     GameSimulator riskEgy = new GameSimulator(SampleController.player1, SampleController.player2, Player.EGYPT_TERRITORIES, 5);
 
     private boolean modeChoice = false;
+    private boolean distributeOrAttack = false;
+    private boolean startTheGame = true;
+
     @FXML
     private Label turn2;
 
@@ -64,6 +69,15 @@ public class FXMLDocumentController implements Initializable {
     private MenuButton endMenu;
     @FXML
     private TextArea gameStatus;
+
+    @FXML
+    private TextField player1_soldiers;
+
+    @FXML
+    private TextField player2_soldiers;
+
+    @FXML
+    private ImageView distribute;
     @FXML
     private Rectangle rec0 = new Rectangle();
     @FXML
@@ -180,7 +194,7 @@ public class FXMLDocumentController implements Initializable {
 
     ArrayList<Image> dices = new ArrayList<>();
 
-    public void load() {
+    public void loadRectangles() {
         for (int i = 1; i <= 6; i++) {
             dices.add(new Image(getClass().getResource(i + ".png").toExternalForm()));
         }
@@ -252,12 +266,15 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     public void yalla(MouseEvent action) {
+        if (startTheGame){
         riskEgy.play();
-        load();
+        loadRectangles();
         checkTheRectangles();
         loadCircles();
         getMyCirclesVisible();
         changeGameStatus();
+        }
+        
     }
 
     public void checkTheRectangles() {
@@ -291,7 +308,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
         } else {
-           
+
             for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
                 if (riskEgy.second.isMine(i)) {
                     attackingPoints[i].setVisible(true);
@@ -301,11 +318,38 @@ public class FXMLDocumentController implements Initializable {
                     attackingPoints[i].setDisable(true);
                 }
             }
-           
+
         }
     } // <3 :( Fuck my life
     //on rolling dice: visible my countires that i can attack from s7
     //if my turn: if mode choice = 0, click on circle, mode =1; set circle visibility to false, disable = true, enable circles i can attack
+
+    @FXML
+    void distributeSoldiers(MouseEvent event) {
+        if (riskEgy.first.isMyTurn()) {
+            riskEgy.first.addSoldiers(riskEgy.first.getBonusSoldiers(), Player.distributeIndex);
+        } else {
+            riskEgy.second.addSoldiers(riskEgy.second.getBonusSoldiers(), Player.distributeIndex);
+        }
+    }
+
+    @FXML
+    void changePlayer1Dice(KeyEvent event) {
+        if (riskEgy.first.isMyTurn()) {
+            Player.myDice = Integer.parseInt(player1_soldiers.getText());
+        } else {
+            Player.opponentDice = Integer.parseInt(player1_soldiers.getText());
+        }
+    }
+
+    @FXML
+    void changePlayer2Dice(KeyEvent event) {
+        if (riskEgy.second.isMyTurn()) {
+            Player.myDice = Integer.parseInt(player2_soldiers.getText());
+        } else {
+            Player.opponentDice = Integer.parseInt(player2_soldiers.getText());
+        }
+    }
 
     @FXML
     public void getNonNeighboursBlocked(MouseEvent event) {
@@ -316,64 +360,72 @@ public class FXMLDocumentController implements Initializable {
                 idx = i;
             }
         }
-        if (riskEgy.first.isMyTurn()) {
-            if (!modeChoice) {
-                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                    if (riskEgy.first.isMine(i)) {
-                        attackingPoints[i].setVisible(false);
-                        attackingPoints[i].setDisable(true);
+        if (!distributeOrAttack) {
+            if (riskEgy.first.isMyTurn()) {
+                if (!modeChoice) {
+                    for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                        if (riskEgy.first.isMine(i)) {
+                            attackingPoints[i].setVisible(false);
+                            attackingPoints[i].setDisable(true);
+                        }
                     }
-                }
-                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                    if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.first.isMine(i)) {
-                        attackingPoints[i].setVisible(true);
-                        attackingPoints[i].setDisable(false);
-                    } else {
-                        attackingPoints[i].setVisible(false);
-                        attackingPoints[i].setDisable(true);
+                    for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                        if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.first.isMine(i)) {
+                            attackingPoints[i].setVisible(true);
+                            attackingPoints[i].setDisable(false);
+                        } else {
+                            attackingPoints[i].setVisible(false);
+                            attackingPoints[i].setDisable(true);
+                        }
                     }
-                }
-                tempIndex = idx;
-                modeChoice = true;
-            } else {
-                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                    if (!(i == tempIndex || i == idx)) {
-                        attackingPoints[i].setVisible(false);
-                        attackingPoints[i].setDisable(true);
+                    Player.attackFromIndex = idx;
+                    modeChoice = true;
+                } else {
+                    for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                        if (!(i == tempIndex || i == idx)) {
+                            attackingPoints[i].setVisible(false);
+                            attackingPoints[i].setDisable(true);
+                        }
                     }
+                    Player.attackToIndex = idx;
+                    modeChoice = false;
                 }
-                modeChoice = false;
-            }
 
+            } else {
+                if (!modeChoice) {
+                    for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                        if (riskEgy.second.isMine(i)) {
+                            attackingPoints[i].setVisible(false);
+                            attackingPoints[i].setDisable(true);
+                        }
+                    }
+                    for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                        if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.second.isMine(i)) {
+                            attackingPoints[i].setVisible(true);
+                            attackingPoints[i].setDisable(false);
+                        } else {
+                            attackingPoints[i].setVisible(false);
+                            attackingPoints[i].setDisable(true);
+                        }
+                    }
+                    Player.attackFromIndex = idx;
+                    modeChoice = true;
+                } else {
+                    for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
+                        if (!(i == tempIndex || i == idx)) {
+                            attackingPoints[i].setVisible(false);
+                            attackingPoints[i].setDisable(true);
+                        }
+                    }
+                    Player.attackToIndex = idx;
+                    modeChoice = false;
+                }
+
+            }
+            distributeOrAttack = true;
         } else {
-            if (!modeChoice) {
-                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                    if (riskEgy.second.isMine(i)) {
-                        attackingPoints[i].setVisible(false);
-                        attackingPoints[i].setDisable(true);
-                    }
-                }
-                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                    if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.second.isMine(i)) {
-                        attackingPoints[i].setVisible(true);
-                        attackingPoints[i].setDisable(false);
-                    } else {
-                        attackingPoints[i].setVisible(false);
-                        attackingPoints[i].setDisable(true);
-                    }
-                }
-                tempIndex = idx;
-                modeChoice = true;
-            } else {
-                for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                    if (!(i == tempIndex || i == idx)) {
-                        attackingPoints[i].setVisible(false);
-                        attackingPoints[i].setDisable(true);
-                    }
-                }
-                modeChoice = false;
-            }
-
+            Player.distributeIndex = idx;
+            distributeOrAttack = false;
         }
         //if it my turn -> disable circles that are not mine, but visible 3ady
         //modes:

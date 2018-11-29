@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class SampleController {
-    public static String player1 = "Aggressive"  , player2;
+    public static String player1 = "Aggressive"  , player2 = "Aggressive";
     @FXML
     private Button sim;
 
@@ -20,6 +20,7 @@ public class SampleController {
     private ImageView riskimage;
     @FXML
     private Button playingButton;
+    
 
     @FXML
     void simulationClicked(ActionEvent event) throws IOException {
@@ -32,7 +33,7 @@ public class SampleController {
     
     @FXML
     void playClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Player2Choice.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoicePlaying.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -181,8 +182,7 @@ public class SampleController {
     
       @FXML
     void egyptSelected(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("/risk/FXMLDocument.fxml"));
-            	
+    	Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptPlayingMode.fxml"));   	
     	Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -191,6 +191,20 @@ public class SampleController {
 
     @FXML
     void USASelected(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void egyptSelectedSimulation(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptSimulationMode.fxml"));
+    	Scene scene = new Scene(root);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.show();
+    }
+
+    @FXML
+    void USASelectedSimulation(ActionEvent event) {
 
     }
 
