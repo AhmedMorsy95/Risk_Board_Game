@@ -24,6 +24,10 @@ public class Factory { /// returns instance of the agent we want
                     return new Greedy();
                 case "Minimax":
                     return new MiniMax();
+                case "A_Star":
+                	return new AggressiveVsAStar();
+                case "Human":
+                	return new HumanAgent();
                 default:
                     break;
             }

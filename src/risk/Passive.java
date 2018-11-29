@@ -15,7 +15,7 @@ public class Passive extends Player {
 
 	Passive(){ /// empty constructor
 		territories = new ArrayList<Integer>();
-		soldier_of_each_territory = new int[EGYPT_TERRITORIES];
+		soldier_of_each_territory = new int[52];
 	}
 	
   
@@ -41,6 +41,13 @@ public class Passive extends Player {
 	@Override
 	public void startAttack(Player opponent, int mapSz) {
 		GameSimulator.status.didAttack = false;
+	}
+
+
+	@Override
+	public void distribute_soldiers(int k, int distributeIndex) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

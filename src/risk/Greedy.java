@@ -16,7 +16,7 @@ public class Greedy extends Player {
 
     Greedy() { /// empty constructor
         territories = new ArrayList<Integer>();
-        soldier_of_each_territory = new int[Player.EGYPT_TERRITORIES];
+        soldier_of_each_territory = new int[52];
     }
 
     Greedy(ArrayList<Integer> a, int all[], int total, Color co) {

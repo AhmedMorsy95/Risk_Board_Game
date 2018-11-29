@@ -30,17 +30,16 @@ public abstract class Player {
     static final int EGYPT_TERRITORIES = 27;
     static final int USA_TERRITORIES = 50;
     boolean turn;
-    int[] soldier_of_each_territory = new int[EGYPT_TERRITORIES];
+    int[] soldier_of_each_territory = new int[52];
     ArrayList<Integer> territories;
     int soldiers;
     Color c;
     ArrayList<Integer> firstPlayerDice = new ArrayList<Integer>();
     ArrayList<Integer> secondPlayerDice = new ArrayList<Integer>();
-
-    Player() {
-
-    }
-
+    
+    /// aho ya hassan
+    int myDice , opponentDice , distributeIndex , attackFromIndex , attackToIndex;
+    ///
     int getBonusSoldiers() {
         return Math.max(territories.size() / 3, 3);
     }
@@ -149,7 +148,8 @@ public abstract class Player {
     }
 
     public abstract void distribute_soldiers(int k);
-
+    
+    public abstract void distribute_soldiers(int k,int distributeIndex) ;
     /* Soldiers Distrubnce */
     /// strategy depends on the agent
     public abstract void simulate_attack(Player opponent, int mapSz);

@@ -17,7 +17,7 @@ public class Pacifist extends Player {
        conquers only the one territory with fewest armies (if it can). */
     Pacifist() {
         territories = new ArrayList<Integer>();
-        soldier_of_each_territory = new int[EGYPT_TERRITORIES];
+        soldier_of_each_territory = new int[52];
     }
 
     @Override

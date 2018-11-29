@@ -15,7 +15,7 @@ public class Aggressive extends Player {
 
     Aggressive() { ///  constructor
         territories = new ArrayList<Integer>();
-        soldier_of_each_territory = new int[EGYPT_TERRITORIES];
+        soldier_of_each_territory = new int[52];
         for (int i = 0; i < soldier_of_each_territory.length;) {
             soldier_of_each_territory[i++] = 0;
         }

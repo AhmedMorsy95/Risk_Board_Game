@@ -17,7 +17,7 @@ public class AggressiveVsAStar extends Player {
 
     AggressiveVsAStar() {
         territories = new ArrayList<Integer>();
-        soldier_of_each_territory = new int[EGYPT_TERRITORIES];
+        soldier_of_each_territory = new int[55];
     }
 
     @Override
@@ -113,4 +113,10 @@ public class AggressiveVsAStar extends Player {
             }
         }
     }
+
+	@Override
+	public void distribute_soldiers(int k, int distributeIndex) {
+		// TODO Auto-generated method stub
+		
+	}
 }

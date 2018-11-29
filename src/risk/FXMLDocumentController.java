@@ -119,7 +119,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Rectangle rec26 = new Rectangle();
 
-    private Rectangle countryLabels[] = new Rectangle[27];
+    private Rectangle countryLabels[] = new Rectangle[52];
 
     @FXML
     public Circle circ0;
@@ -176,7 +176,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Circle circ26;
 
-    private Circle attackingPoints[] = new Circle[27];
+    private Circle attackingPoints[] = new Circle[52];
 
     ArrayList<Image> dices = new ArrayList<>();
 
