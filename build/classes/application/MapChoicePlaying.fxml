@@ -16,19 +16,19 @@
    <children>
       <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@risk5.jpg" />
+            <Image url="@../media/risk5.jpg" />
          </image>
       </ImageView>
       <Circle fill="#ffe91f" layoutX="121.0" layoutY="232.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="89.0" layoutY="213.0" prefHeight="33.0" prefWidth="64.0" style="-fx-font-size: 20pt; -fx-font-weight: BOLD;" text="MAP" />
       <ImageView fitHeight="42.0" fitWidth="64.0" layoutX="224.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="64.0" layoutX="224.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="147.0" mnemonicParsing="false" onAction="#egyptSelected" prefHeight="39.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />

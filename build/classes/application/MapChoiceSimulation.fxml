@@ -31,7 +31,7 @@
             <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
-      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="147.0" mnemonicParsing="false" onAction="#egyptSelected" prefHeight="39.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />
-      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="256.0" mnemonicParsing="false" onAction="#USASelected" prefHeight="57.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="USA" />
+      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="147.0" mnemonicParsing="false" onAction="#egyptSelectedSimulation" prefHeight="39.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="EGYPT" />
+      <Button blendMode="MULTIPLY" layoutX="308.0" layoutY="256.0" mnemonicParsing="false" onAction="#USASelectedSimulation" prefHeight="57.0" prefWidth="147.0" style="-fx-font-weight: BOLD; -fx-font-size: 20pt;" text="USA" />
    </children>
 </Pane>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -14,7 +21,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane prefHeight="600.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="risk.FXMLDocumentController">
+<Pane prefHeight="600.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FXMLDocumentController">
     <children>
         <ImageView fitHeight="600.0" fitWidth="652.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -98,10 +105,10 @@
                         <Image url="@No.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="turn1" layoutX="130.0" layoutY="87.0" text="turn!" textFill="RED" visible="false" />
-                  <Label fx:id="turn2" layoutX="130.0" layoutY="478.0" text="turn!" textFill="RED" visible="false" />
-                  <TextField fx:id="player1_soldiers" layoutX="18.0" layoutY="149.0" onKeyTyped="#changePlayer1Dice" prefHeight="25.0" prefWidth="157.0" promptText="Enter number of soldiers" />
-                  <TextField fx:id="player2_soldiers" layoutX="19.0" layoutY="571.0" onKeyTyped="#changePlayer2Dice" prefHeight="25.0" prefWidth="157.0" promptText="Enter number of soldiers" />
+                  <Label fx:id="turn1" layoutX="130.0" layoutY="67.0" prefHeight="7.0" prefWidth="40.0" text="turn!" textFill="RED" visible="false" />
+                  <Label fx:id="turn2" layoutX="130.0" layoutY="484.0" prefHeight="17.0" prefWidth="40.0" text="turn!" textFill="RED" visible="false" />
+                  <TextField fx:id="player1_soldiers" layoutX="18.0" layoutY="149.0" onKeyReleased="#changePlayer1Dice" prefHeight="25.0" prefWidth="157.0" promptText="Enter number of soldiers" />
+                  <TextField fx:id="player2_soldiers" layoutX="19.0" layoutY="571.0" onKeyReleased="#changePlayer2Dice" prefHeight="25.0" prefWidth="157.0" promptText="Enter number of soldiers" />
                         <TextArea fx:id="gameStatus" layoutX="25.0" layoutY="188.0" prefHeight="136.0" prefWidth="146.0">
                             <padding>
                                 <Insets left="10.0" right="10.0" />

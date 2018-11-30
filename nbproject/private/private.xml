@@ -3,18 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/PacifistVsAStar.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/application/Player2Choice.fxml</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/Human.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/application/SampleController.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/Player.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/Greedy.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/application/Sample.fxml</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/MiniMax.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/GameSimulator.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/FXMLDocumentController.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/PassiveVsAStar.java</file>
-            <file>file:/A:/term7/Artificial%20Intelligence/Assignments/assignment%202/Risk_Board_Game/src/risk/Node.java</file>
+            <file>file:/C:/Users/smsm/Documents/NetBeansProjects/Risk-Board-Game/src/application/AgentChoice2.fxml</file>
+            <file>file:/C:/Users/smsm/Documents/NetBeansProjects/Risk-Board-Game/src/risk/PassiveVsAStar.java</file>
+            <file>file:/C:/Users/smsm/Documents/NetBeansProjects/Risk-Board-Game/src/application/Main.java</file>
         </group>
     </open-files>
 </project-private>

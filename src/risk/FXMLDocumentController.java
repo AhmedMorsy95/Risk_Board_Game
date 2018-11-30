@@ -35,7 +35,6 @@ public class FXMLDocumentController implements Initializable {
 
     private boolean modeChoice = false;
     private boolean distributeOrAttack = false;
-    private boolean startTheGame = true;
 
     @FXML
     private Label turn2;
@@ -133,7 +132,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Rectangle rec26 = new Rectangle();
 
-    private Rectangle countryLabels[] = new Rectangle[52];
+    private Rectangle countryLabels[] = new Rectangle[Player.EGYPT_TERRITORIES];
 
     @FXML
     public Circle circ0;
@@ -190,13 +189,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Circle circ26;
 
-    private Circle attackingPoints[] = new Circle[52];
+    private Circle attackingPoints[] = new Circle[Player.EGYPT_TERRITORIES];
 
     ArrayList<Image> dices = new ArrayList<>();
 
-    public void loadRectangles() {
-        for (int i = 1; i <= 6; i++) {
-            dices.add(new Image(getClass().getResource(i + ".png").toExternalForm()));
+    public void load() {
+        for (int i = 1; i < 7; i++) {
+            dices.add(new Image(getClass().getResource("/media/"+ i +".png").toExternalForm()));
         }
     }
 
@@ -266,25 +265,33 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     public void yalla(MouseEvent action) {
-        if (startTheGame){
         riskEgy.play();
-        loadRectangles();
+        //printing soldiers
+        System.out.println("Attacking Mode");
+        for (int i = 0; i < GameSimulator.first.soldier_of_each_territory.length; i++) {
+            System.out.print(GameSimulator.first.soldier_of_each_territory[i] + " ");
+        }
+        System.out.println("\n");
+
+        for (int i = 0; i < GameSimulator.second.soldier_of_each_territory.length; i++) {
+            System.out.print(GameSimulator.second.soldier_of_each_territory[i] + " ");
+        }
+        System.out.println("\n");
+        load();
         checkTheRectangles();
         loadCircles();
         getMyCirclesVisible();
         changeGameStatus();
-        }
-        
     }
 
     public void checkTheRectangles() {
 
         loadRect();
         for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-            if (riskEgy.first.getTerritories().contains(i)) {
-                countryLabels[i].setFill(riskEgy.first.getColor());
+            if (GameSimulator.first.getTerritories().contains(i)) {
+                countryLabels[i].setFill(GameSimulator.first.getColor());
             } else {
-                countryLabels[i].setFill(riskEgy.second.getColor());
+                countryLabels[i].setFill(GameSimulator.second.getColor());
             }
 
         }
@@ -296,10 +303,10 @@ public class FXMLDocumentController implements Initializable {
     //second step:!visible my circles and !disable mine,el opponent shayef el circles bto3oh and disable = false
 
     public void getMyCirclesVisible() {
-        if (riskEgy.first.isMyTurn()) {
+        if (GameSimulator.first.isMyTurn()) {
             //     if (!modeChoice) {
             for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                if (riskEgy.first.isMine(i)) {
+                if (GameSimulator.first.isMine(i)) {
                     attackingPoints[i].setVisible(true);
                     attackingPoints[i].setDisable(false);
                 } else {
@@ -310,7 +317,7 @@ public class FXMLDocumentController implements Initializable {
         } else {
 
             for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                if (riskEgy.second.isMine(i)) {
+                if (GameSimulator.second.isMine(i)) {
                     attackingPoints[i].setVisible(true);
                     attackingPoints[i].setDisable(false);
                 } else {
@@ -320,40 +327,53 @@ public class FXMLDocumentController implements Initializable {
             }
 
         }
-    } // <3 :( Fuck my life
-    //on rolling dice: visible my countires that i can attack from s7
-    //if my turn: if mode choice = 0, click on circle, mode =1; set circle visibility to false, disable = true, enable circles i can attack
+    }
 
     @FXML
     void distributeSoldiers(MouseEvent event) {
-        if (riskEgy.first.isMyTurn()) {
-            riskEgy.first.addSoldiers(riskEgy.first.getBonusSoldiers(), Player.distributeIndex);
+        if (GameSimulator.first.isMyTurn()) {
+            GameSimulator.first.distribute_soldiers(GameSimulator.first.getBonusSoldiers(), GameSimulator.first);
         } else {
-            riskEgy.second.addSoldiers(riskEgy.second.getBonusSoldiers(), Player.distributeIndex);
+            GameSimulator.second.distribute_soldiers(GameSimulator.second.getBonusSoldiers(), GameSimulator.second);
         }
+        System.out.println("Distribute Mode");
+        for (int i = 0; i < GameSimulator.first.soldier_of_each_territory.length; i++) {
+            System.out.print(GameSimulator.first.soldier_of_each_territory[i] + " ");
+        }
+        System.out.println("\n");
+        for (int i = 0; i < GameSimulator.second.soldier_of_each_territory.length; i++) {
+            System.out.print(GameSimulator.second.soldier_of_each_territory[i] + " ");
+        }
+        System.out.println("\n");
+        getMyCirclesVisible();
+        changeGameStatus();
     }
 
     @FXML
     void changePlayer1Dice(KeyEvent event) {
-        if (riskEgy.first.isMyTurn()) {
-            Player.myDice = Integer.parseInt(player1_soldiers.getText());
-        } else {
-            Player.opponentDice = Integer.parseInt(player1_soldiers.getText());
+        if (!player1_soldiers.getText().isEmpty()) {
+            if (GameSimulator.first.isMyTurn()) {
+                Player.myDice = Integer.parseInt(player1_soldiers.getText());
+            } else {
+                Player.opponentDice = Integer.parseInt(player1_soldiers.getText());
+            }
         }
     }
+    int tmp = 0;
 
     @FXML
     void changePlayer2Dice(KeyEvent event) {
-        if (riskEgy.second.isMyTurn()) {
-            Player.myDice = Integer.parseInt(player2_soldiers.getText());
-        } else {
-            Player.opponentDice = Integer.parseInt(player2_soldiers.getText());
+        if (!player2_soldiers.getText().isEmpty()) {
+            if (GameSimulator.second.isMyTurn()) {
+                Player.myDice = Integer.parseInt(player2_soldiers.getText());
+            } else {
+                Player.opponentDice = Integer.parseInt(player2_soldiers.getText());
+            }
         }
     }
 
     @FXML
     public void getNonNeighboursBlocked(MouseEvent event) {
-
         int idx = -1, tempIndex = -1;
         for (int i = 0; i < attackingPoints.length; i++) {
             if (event.getSource().equals(attackingPoints[i])) {
@@ -361,16 +381,17 @@ public class FXMLDocumentController implements Initializable {
             }
         }
         if (!distributeOrAttack) {
-            if (riskEgy.first.isMyTurn()) {
+            tmp++;
+            if (GameSimulator.first.isMyTurn()) {
                 if (!modeChoice) {
                     for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                        if (riskEgy.first.isMine(i)) {
+                        if (GameSimulator.first.isMine(i) && i != idx) {
                             attackingPoints[i].setVisible(false);
                             attackingPoints[i].setDisable(true);
                         }
                     }
                     for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                        if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.first.isMine(i)) {
+                        if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !GameSimulator.first.isMine(i)) {
                             attackingPoints[i].setVisible(true);
                             attackingPoints[i].setDisable(false);
                         } else {
@@ -394,13 +415,13 @@ public class FXMLDocumentController implements Initializable {
             } else {
                 if (!modeChoice) {
                     for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                        if (riskEgy.second.isMine(i)) {
+                        if (GameSimulator.second.isMine(i) && i != idx) {
                             attackingPoints[i].setVisible(false);
                             attackingPoints[i].setDisable(true);
                         }
                     }
                     for (int i = 0; i < Player.EGYPT_TERRITORIES; i++) {
-                        if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !riskEgy.second.isMine(i)) {
+                        if (AdjacencyMatrix.egyptMap[idx][i] == 1 && !GameSimulator.second.isMine(i)) {
                             attackingPoints[i].setVisible(true);
                             attackingPoints[i].setDisable(false);
                         } else {
@@ -422,8 +443,12 @@ public class FXMLDocumentController implements Initializable {
                 }
 
             }
-            distributeOrAttack = true;
+            if (tmp == 2) {
+                distributeOrAttack = true;
+            }
+            tmp %= 2;
         } else {
+            System.out.println(idx);
             Player.distributeIndex = idx;
             distributeOrAttack = false;
         }
@@ -436,9 +461,9 @@ public class FXMLDocumentController implements Initializable {
     public void changeGameStatus() {
         gameStatus.clear();
         if (GameSimulator.first.isMyTurn()) {
-            turn2.setVisible(false);
-            turn1.setVisible(true);
-        } else {
+            turn2.setVisible(false); // <---------ok  asdk en hwa mshhowa m7 shby
+            turn1.setVisible(true); // Feh moshkla fel stren ly wra b3 d? ah fhmt bs msh dh m3nah en turn mt8yrsh ?
+        } else if (GameSimulator.second.isMyTurn()) {//turn msh htt8yyr ella lw first et8yyrt .. "*first turn mt8yyrsh*" ok let's C3
             turn1.setVisible(false);
             turn2.setVisible(true);
         }
@@ -452,41 +477,39 @@ public class FXMLDocumentController implements Initializable {
 
         if (GameSimulator.status.didAttack == false) {
             gameStatus.appendText("Couldn't attack");
-            for (int i = 0; i < 27; i++) {
-            }
             return;
         }
-
-        switch (riskEgy.status.dice1.size()) {
+        System.out.println(GameSimulator.status.dice1);
+        switch (GameSimulator.status.dice1.size()) {
             case 3:
-                dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
-                dice1_2.setImage(dices.get(riskEgy.status.dice1.get(1)));
-                dice1_3.setImage(dices.get(riskEgy.status.dice1.get(2)));
+                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)-1));
+                dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)-1));
+                dice1_3.setImage(dices.get(GameSimulator.status.dice1.get(2)-1));
                 break;
             case 2:
-                dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
-                dice1_2.setImage(dices.get(riskEgy.status.dice1.get(1)));
+                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)-1));
+                dice1_2.setImage(dices.get(GameSimulator.status.dice1.get(1)-1));
                 break;
             case 1:
-                dice1_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
+                dice1_1.setImage(dices.get(GameSimulator.status.dice1.get(0)-1));
                 break;
             default:
                 break;
         }
-
-        switch (riskEgy.status.dice2.size()) {
+        System.out.println(GameSimulator.status.dice2);
+        switch (GameSimulator.status.dice2.size()) {
             case 3:
-                dice2_1.setImage(dices.get(riskEgy.status.dice1.get(0)));
-                dice2_2.setImage(dices.get(riskEgy.status.dice1.get(1)));
-                dice2_3.setImage(dices.get(riskEgy.status.dice1.get(2)));
+                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)-1));
+                dice2_2.setImage(dices.get(GameSimulator.status.dice2.get(1)-1));
+                dice2_3.setImage(dices.get(GameSimulator.status.dice2.get(2)-1));
                 break;
 
             case 2:
-                dice2_1.setImage(dices.get(riskEgy.status.dice2.get(0)));
-                dice2_2.setImage(dices.get(riskEgy.status.dice2.get(1)));
+                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)-1));
+                dice2_2.setImage(dices.get(GameSimulator.status.dice2.get(1)-1));
                 break;
             case 1:
-                dice2_1.setImage(dices.get(riskEgy.status.dice2.get(0)));
+                dice2_1.setImage(dices.get(GameSimulator.status.dice2.get(0)-1));
                 break;
             default:
                 break;

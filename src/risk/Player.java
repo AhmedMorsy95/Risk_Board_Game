@@ -36,7 +36,7 @@ public abstract class Player {
     Color c;
     ArrayList<Integer> firstPlayerDice = new ArrayList<Integer>();
     ArrayList<Integer> secondPlayerDice = new ArrayList<Integer>();
-    
+    boolean callDistribute = true;
     /// aho ya hassan
     public static int myDice = -1 , opponentDice = -1 , distributeIndex = -1 , attackFromIndex = -1 , attackToIndex = -1;
     ///
@@ -115,6 +115,7 @@ public abstract class Player {
             one.removeSoldiers(from, a);
         }
         GameSimulator.status = new MatchStatus(a, b, from, to, true, result, invade, firstPlayerDice, secondPlayerDice);
+        myDice = opponentDice = -1;
     }
 
     boolean fight(int a, int b) { /// determines if i win the fight , simulates dice throwing

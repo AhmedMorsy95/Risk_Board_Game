@@ -16,44 +16,44 @@
    <children>
       <ImageView fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@risk5.jpg" />
+            <Image url="@../media/risk5.jpg" />
          </image>
       </ImageView>
       <Circle fill="#ffe91f" layoutX="100.0" layoutY="260.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
       <Label layoutX="45.0" layoutY="241.0" prefHeight="33.0" prefWidth="105.0" style="-fx-font-size: 20pt; -fx-font-weight: BOLD;" text="Player 2" />
       <ImageView fitHeight="33.0" fitWidth="119.0" layoutX="224.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="64.0" layoutX="224.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="64.0" layoutX="224.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="64.0" layoutX="224.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="64.0" layoutX="224.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="64.0" layoutX="224.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="33.0" fitWidth="64.0" layoutX="224.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@arrow2.jpg" />
+            <Image url="@../media/arrow2.jpg" />
          </image>
       </ImageView>
       <Button blendMode="MULTIPLY" layoutX="300.0" layoutY="124.0" mnemonicParsing="false" onAction="#ply2_passive_button" prefHeight="33.0" prefWidth="137.0" style="-fx-font-weight: BOLD;" text="PASSIVE AGENT" />
