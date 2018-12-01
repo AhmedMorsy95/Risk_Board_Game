@@ -14,7 +14,7 @@
     <children>
         <ImageView fitHeight="600.0" fitWidth="652.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@egypt-proportional-votes-governorates.png" />
+                <Image url="@..\media\egypt-proportional-votes-governorates.png" />
             </image>
         </ImageView>
         <Separator layoutX="601.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="5.0" />
@@ -56,47 +56,47 @@
                         </TextArea>
                         <ImageView fitHeight="63.0" fitWidth="60.0" layoutX="66.0" layoutY="337.0" onMouseClicked="#yalla" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@play.png" />
+                                <Image url="@..\media\play.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="87.0" fitWidth="105.0" layoutX="60.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@000000_q_13073.jpg" />
+                                <Image url="@..\media\000000_q_13073.jpg" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="87.0" fitWidth="103.0" layoutX="59.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@000000_q_13078.jpg" />
+                                <Image url="@..\media\000000_q_13078.jpg" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice2_1" fitHeight="40.0" fitWidth="40.0" layoutX="19.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@No.png" />
+                                <Image url="@..\media\No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice1_1" fitHeight="40.0" fitWidth="40.0" layoutX="19.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@No.png" />
+                                <Image url="@..\media\No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice1_2" fitHeight="40.0" fitWidth="40.0" layoutX="77.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@No.png" />
+                                <Image url="@..\media\No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice2_2" fitHeight="40.0" fitWidth="40.0" layoutX="76.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@No.png" />
+                                <Image url="@..\media\No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice1_3" fitHeight="40.0" fitWidth="40.0" layoutX="134.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@No.png" />
+                                <Image url="@..\media\No.png" />
                             </image>
                         </ImageView>
                   <ImageView fx:id="dice2_3" fitHeight="40.0" fitWidth="40.0" layoutX="134.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@No.png" />
+                        <Image url="@..\media\No.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="turn1" layoutX="130.0" layoutY="87.0" text="turn!" textFill="RED" visible="false" />
