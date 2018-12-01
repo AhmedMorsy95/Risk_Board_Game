@@ -449,7 +449,8 @@ public class FXMLDocumentController2 implements Initializable {
                     attackingPoints[i].setVisible(true);
                     attackingPoints[i].setDisable(false);
                 } else {
-                    attackingPoints[i].setVisible(false);
+
+
                     attackingPoints[i].setDisable(true);
                 }
             }
@@ -607,12 +608,12 @@ public class FXMLDocumentController2 implements Initializable {
             turn2.setVisible(true);
         }
 
-        dice1_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice1_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice1_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice2_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice2_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice2_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice1_1.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice1_2.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice1_3.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice2_1.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice2_2.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice2_3.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
 
         if (GameSimulator.status.didAttack == false) {
             gameStatus.appendText("Couldn't attack");

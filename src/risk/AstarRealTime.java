@@ -6,6 +6,7 @@
 package risk;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Random;
 
@@ -20,6 +21,7 @@ public class AstarRealTime extends Player {
         soldier_of_each_territory = new int[55];
     }
 
+
     @Override
     public void distribute_soldiers(int numberOfSoldiers) {
         int index;
@@ -33,12 +35,11 @@ public class AstarRealTime extends Player {
 
     @Override
     public void simulate_attack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void startAttack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        go(opponent , mapSz);
     }
 
     int heuristic(Player a, Player b, int myTerritory, int attackTerritory, int mapSz) {
@@ -56,6 +57,7 @@ public class AstarRealTime extends Player {
         myHeuristic -= b.soldier_of_each_territory[attackTerritory];
         return myHeuristic;
     }
+    HashSet<Node> visited = new HashSet<Node>(); 
 
     public void go(Player aggressive, int mapSz) {
         Node cur = new Node(this, aggressive, 0);
@@ -66,6 +68,10 @@ public class AstarRealTime extends Player {
         while (!pq.isEmpty()) {
             cur = pq.peek();
             pq.poll();
+            if(visited.contains(cur)) {
+            	continue;
+            }
+            visited.add(cur);
             int indexOfTerritory;
             for (int i = 0; i < cur.one.territories.size(); i++) {
                 indexOfTerritory = cur.one.territories.get(i);
@@ -116,6 +122,6 @@ public class AstarRealTime extends Player {
 
     @Override
     public void distribute_soldiers(int k, Player a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 }

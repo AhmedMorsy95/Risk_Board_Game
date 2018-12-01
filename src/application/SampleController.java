@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class SampleController {
 
-    public static String player1 = "Aggressive", player2 = "Aggressive";
+    public static String player1 = "Human", player2 = "Human";
     @FXML
     private Button sim;
 

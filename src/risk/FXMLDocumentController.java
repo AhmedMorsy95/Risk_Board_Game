@@ -468,12 +468,12 @@ public class FXMLDocumentController implements Initializable {
             turn2.setVisible(true);
         }
 
-        dice1_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice1_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice1_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice2_1.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice2_2.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
-        dice2_3.setImage(new Image(getClass().getResource("No.png").toExternalForm()));
+        dice1_1.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice1_2.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice1_3.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice2_1.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice2_2.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
+        dice2_3.setImage(new Image(getClass().getResource("/media/No.png").toExternalForm()));
 
         if (GameSimulator.status.didAttack == false) {
             gameStatus.appendText("Couldn't attack");
