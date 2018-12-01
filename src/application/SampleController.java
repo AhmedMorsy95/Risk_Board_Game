@@ -12,7 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class SampleController {
-    public static String player1 = "Aggressive"  , player2 = "Aggressive";
+
+    public static String player1 = "Aggressive", player2 = "Aggressive";
     @FXML
     private Button sim;
 
@@ -20,7 +21,6 @@ public class SampleController {
     private ImageView riskimage;
     @FXML
     private Button playingButton;
-    
 
     @FXML
     void simulationClicked(ActionEvent event) throws IOException {
@@ -31,10 +31,9 @@ public class SampleController {
         app_stage.show();
     }
 
-
     @FXML
     void ply1_passive_button(ActionEvent event) throws IOException {
-    	player1 = "Passive";
+        player1 = "Passive";
         Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -45,7 +44,7 @@ public class SampleController {
     @FXML
     void ply1_aggressive_button(ActionEvent event) throws IOException {
         player1 = "Aggressive";
-    	Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -55,7 +54,7 @@ public class SampleController {
     @FXML
     void ply1_pacifist_button(ActionEvent event) throws IOException {
         player1 = "Pacifist";
-    	Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -65,7 +64,7 @@ public class SampleController {
     @FXML
     void ply1_greedy_button(ActionEvent event) throws IOException {
         player1 = "Greedy";
-    	Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -75,7 +74,7 @@ public class SampleController {
     @FXML
     void ply1_astars_button(ActionEvent event) throws IOException {
         player1 = "A_Star";
-    	Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -85,7 +84,7 @@ public class SampleController {
     @FXML
     void ply1_realtime_button(ActionEvent event) throws IOException {
         player1 = "RealTime A*";
-    	Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -95,17 +94,17 @@ public class SampleController {
     @FXML
     void ply1_minimax_button(ActionEvent event) throws IOException {
         player1 = "Minimax";
-    	Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AgentChoice2.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
     }
-    
-      @FXML
+
+    @FXML
     void ply2_passive_button(ActionEvent event) throws IOException {
         player2 = "Passive";
-    	  Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -114,8 +113,8 @@ public class SampleController {
 
     @FXML
     void ply2_aggressive_button(ActionEvent event) throws IOException {
-    	player2 = "Aggressive";
-    	Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        player2 = "Aggressive";
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -124,8 +123,8 @@ public class SampleController {
 
     @FXML
     void ply2_pacifist_button(ActionEvent event) throws IOException {
-    	player2 = "Pacifist";
-    	Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        player2 = "Pacifist";
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -134,8 +133,8 @@ public class SampleController {
 
     @FXML
     void ply2_greedy_button(ActionEvent event) throws IOException {
-    	player2 = "Greedy";
-    	Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        player2 = "Greedy";
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -144,8 +143,8 @@ public class SampleController {
 
     @FXML
     void ply2_astars_button(ActionEvent event) throws IOException {
-    	player2 = "A_Star";
-    	Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        player2 = "A_Star";
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -155,38 +154,42 @@ public class SampleController {
     @FXML
     void ply2_realtime_button(ActionEvent event) throws IOException {
         player2 = "RealTime A*";
-    	Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
     }
-    
+
     @FXML
     void ply2_minimax_button(ActionEvent event) throws IOException {
         player2 = "Minimax";
-    	Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MapChoiceSimulation.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
     }
-    
+
     @FXML
     void egyptSelectedSimulation(ActionEvent event) throws IOException {
-    	Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptSimulationMode.fxml"));
-    	Scene scene = new Scene(root);
+        Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptSimulationMode.fxml"));
+        Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
     }
 
     @FXML
-    void USASelectedSimulation(ActionEvent event) {
-
+    void USASelectedSimulation(ActionEvent event) throws IOException {
+        player1 = player2 = "Human";
+        Parent root = FXMLLoader.load(getClass().getResource("/risk/UsaSimulationMode.fxml"));
+        Scene scene = new Scene(root);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.show();
     }
-    
-        
+
     @FXML
     void playClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MapChoicePlaying.fxml"));
@@ -195,20 +198,26 @@ public class SampleController {
         app_stage.setScene(scene);
         app_stage.show();
     }
-    
-      @FXML
+
+    @FXML
     void egyptSelected(ActionEvent event) throws IOException {
         player1 = player2 = "Human";
-    	Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptPlayingMode.fxml"));   	
-    	Scene scene = new Scene(root);
+        Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptPlayingMode.fxml"));
+        Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();
     }
 
     @FXML
-    void USASelected(ActionEvent event) {
+    void USASelected(ActionEvent event) throws IOException {
+        player1 = player2 = "Human";
+        Parent root = FXMLLoader.load(getClass().getResource("/risk/UsaPlayingMode.fxml"));
+        Scene scene = new Scene(root);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.show();
 
     }
-    
+
 }

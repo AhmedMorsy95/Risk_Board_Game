@@ -25,7 +25,7 @@
     <children>
         <ImageView fitHeight="600.0" fitWidth="652.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@..\media\..\media\egypt-proportional-votes-governorates.png" />
+                <Image url="@../media/egypt-proportional-votes-governorates.png" />
             </image>
         </ImageView>
         <Separator layoutX="601.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="5.0" />
@@ -62,47 +62,47 @@
                     <children>
                         <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="41.0" layoutY="355.0" onMouseClicked="#yalla" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\play.png" />
+                                <Image url="@../media/play.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="87.0" fitWidth="105.0" layoutX="60.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\000000_q_13073.jpg" />
+                                <Image url="@../media/000000_q_13073.jpg" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="87.0" fitWidth="103.0" layoutX="60.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\000000_q_13078.jpg" />
+                                <Image url="@../media/000000_q_13078.jpg" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice2_1" fitHeight="40.0" fitWidth="40.0" layoutX="19.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\No.png" />
+                                <Image url="@../media/No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice1_1" fitHeight="40.0" fitWidth="40.0" layoutX="19.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\No.png" />
+                                <Image url="@../media/No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice1_2" fitHeight="40.0" fitWidth="40.0" layoutX="77.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\No.png" />
+                                <Image url="@../media/No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice2_2" fitHeight="40.0" fitWidth="40.0" layoutX="77.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\No.png" />
+                                <Image url="@../media/No.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="dice1_3" fitHeight="40.0" fitWidth="40.0" layoutX="134.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@..\media\No.png" />
+                                <Image url="@../media/No.png" />
                             </image>
                         </ImageView>
                   <ImageView fx:id="dice2_3" fitHeight="40.0" fitWidth="40.0" layoutX="134.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@..\media\No.png" />
+                        <Image url="@../media/No.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="turn1" layoutX="130.0" layoutY="67.0" prefHeight="7.0" prefWidth="40.0" text="turn!" textFill="RED" visible="false" />
@@ -116,7 +116,7 @@
                         </TextArea>
                   <ImageView fx:id="distribute" fitHeight="49.0" fitWidth="40.0" layoutX="128.0" layoutY="351.0" onMouseClicked="#distributeSoldiers" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@..\media\distribute.png" />
+                        <Image url="@../media/distribute.png" />
                      </image>
                   </ImageView>
                     </children>

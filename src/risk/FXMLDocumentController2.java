@@ -282,7 +282,6 @@ public class FXMLDocumentController2 implements Initializable {
     @FXML
     private Circle circ49;
   
-//mn awel hena!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     private Circle attackingPoints[] = new Circle[Player.USA_TERRITORIES];
 
     ArrayList<Image> dices = new ArrayList<>();
