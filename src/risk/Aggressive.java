@@ -19,6 +19,7 @@ public class Aggressive extends Player {
         for (int i = 0; i < soldier_of_each_territory.length;) {
             soldier_of_each_territory[i++] = 0;
         }
+        callDistribute = true;  
     }
 
     /*An aggressive agent, that always places all its bonus armies on the territory with

@@ -33,12 +33,11 @@ public class AggressiveVsAStar extends Player {
 
     @Override
     public void simulate_attack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void startAttack(Player opponent, int mapSz) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        go(opponent , mapSz);
     }
 
     int heuristic(Player a, Player b, int myTerritory, int attackTerritory, int mapSz) {
@@ -116,6 +115,6 @@ public class AggressiveVsAStar extends Player {
 
     @Override
     public void distribute_soldiers(int k, Player a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 }

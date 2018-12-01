@@ -79,7 +79,7 @@ public abstract class Player {
 
     void removeSoldiers(int country, int x) {
         soldiers -= x;
-        soldier_of_each_territory[country] -= x;
+        soldier_of_each_territory[country] -= Math.min(soldier_of_each_territory[country], x);
     }
 
     void addTerritory(int country, int x) {

@@ -16,7 +16,7 @@ public class Human extends Player {
     public Human(){
         callDistribute = false;
         territories = new ArrayList<Integer>();
-	soldier_of_each_territory = new int[Player.EGYPT_TERRITORIES];
+        soldier_of_each_territory = new int[55];
     }
 
     @Override

@@ -13,13 +13,17 @@ import java.util.ArrayList;
  */
 public class MatchStatus {
 
-    int from, to, soldiersFrom, soldiersTo;
+    String from, to;
+    int soldiersFrom, soldiersTo;
     boolean didAttackerWin;
     boolean didAttackerInvade;
     boolean didAttack;
     ArrayList<Integer> dice1;
     ArrayList<Integer> dice2;
-
+    
+    String[] Egycountries = new String[] {"Matrouh","Alexandria","Kafr El-sheikh","Damietta","Port Said","N Sinai","Gharbiya","Daqahliya","S Sinai","Behira","Menoufiya","Qalyobiya","Sharqiya","New Valley","Giza","Ismaily","Suez","Red Sea","Fayoum","Beni Suef","Minya","Asyut","Sohag","Qena","Aswan","Luxor"};
+    String[] Usacountries = new String[55];
+    
     public MatchStatus() {
 
     }
@@ -27,8 +31,14 @@ public class MatchStatus {
     MatchStatus(int a, int b, int c, int d, boolean z, boolean x, boolean y, ArrayList<Integer> ply1, ArrayList<Integer> ply2) {
         soldiersFrom = a;
         soldiersTo = b;
-        from = c;
-        to = d;
+        if(GameSimulator.mapSizeplz == 27) {
+         from = Egycountries[c];
+         to = Egycountries[d];
+        }
+        else {
+        	from = String.valueOf(c+1);
+        	to = String.valueOf(d+1);
+        }
         didAttackerWin = x;
         didAttackerInvade = y;
         didAttack = z;

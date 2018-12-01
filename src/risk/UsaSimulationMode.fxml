@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane prefHeight="600.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="risk.FXMLDocumentController2">
+<Pane prefHeight="600.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="risk.fxmlDocumentControllerUsaSimulation">
     <children>
         <ImageView fitHeight="415.0" fitWidth="611.0" layoutX="-4.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
             <image>

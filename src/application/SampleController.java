@@ -182,7 +182,7 @@ public class SampleController {
 
     @FXML
     void USASelectedSimulation(ActionEvent event) throws IOException {
-        player1 = player2 = "Human";
+     //   player1 = player2 = "Human";
         Parent root = FXMLLoader.load(getClass().getResource("/risk/UsaSimulationMode.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -201,7 +201,7 @@ public class SampleController {
 
     @FXML
     void egyptSelected(ActionEvent event) throws IOException {
-        player1 = player2 = "Human";
+//        player1 = player2 = "Human";
         Parent root = FXMLLoader.load(getClass().getResource("/risk/EgyptPlayingMode.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -211,7 +211,7 @@ public class SampleController {
 
     @FXML
     void USASelected(ActionEvent event) throws IOException {
-        player1 = player2 = "Human";
+      //  player1 = player2 = "Human";
         Parent root = FXMLLoader.load(getClass().getResource("/risk/UsaPlayingMode.fxml"));
         Scene scene = new Scene(root);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

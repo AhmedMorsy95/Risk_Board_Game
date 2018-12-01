@@ -17,9 +17,10 @@ public class GameSimulator  {
     int boardSize;
     static MatchStatus status;
     boolean firstPlay = false;
-
+    static int mapSizeplz;
     GameSimulator(String a, String b, int nTerritories, int extra) {  /// constructor ,  sets the game initial conditions
-        first = Factory.getPlayer(a);
+        mapSizeplz = nTerritories;
+    	first = Factory.getPlayer(a);
         second = Factory.getPlayer(b);
         boardSize = nTerritories;
         status = new MatchStatus();
@@ -33,12 +34,14 @@ public class GameSimulator  {
         /// now we have 2 instances , randomly distribute territories
         randomDistributeTerritories(nTerritories);
         randomDistributeExrta(extra);
+        System.out.print(a + " " + b + " " + first.callDistribute + " " + second.callDistribute + "hamada\n");
         /// now we distributed territories and extra soldiers
         /// we are ready to play!
     }
 
     void play() {  /// called by the gui , simulates one turn only
-        if(firstPlay == false){
+    	
+    	if(firstPlay == false){
             firstPlay = true;
             return;
         }
@@ -51,6 +54,7 @@ public class GameSimulator  {
             second.distribute_soldiers(first.getBonusSoldiers());
             second.startAttack(first, boardSize);
         }
+        System.out.println(first.callDistribute + " " + second.callDistribute);
         if(first.turn ==  true && first.callDistribute == false){
             return;
         }
