@@ -120,14 +120,14 @@ public class MiniMax extends Player {
 
                 /// now we have 2 countries to attack each other
                 for (int dice1 = 1; dice1 < Math.min(4, a.soldier_of_each_territory[a.territories.get(i)]); dice1++) {
-                    for (int dice2 = 1; dice2 <= Math.min(2, b.soldier_of_each_territory[b.territories.get(j)]); dice2++) {
+                   for (int dice2 = 1; dice2 <= Math.min(2, b.soldier_of_each_territory[b.territories.get(j)]); dice2++) {
 
                         int from = a.territories.get(i);
                         int to = neighbours.get(j);
                         double tmp = mx1;
                         mx1 = Math.max(mx1,
-                                getMiniMax(makeChangesSecond(a, b, from, to, dice1, dice2, false),
-                                        makeChangesFirst(a, b, from, to, dice1, dice2, true), depth - 1, mapSz,
+                                getMiniMax(makeChangesSecond(a.getCopy(), b.getCopy(), from, to, dice1, dice2, false),
+                                        makeChangesFirst(a.getCopy(), b.getCopy(), from, to, dice1, dice2, true), depth - 1, mapSz,
                                         pathProbability * getDiceProbability(dice1, dice2), !isMax));
                         if (isMax && tmp < mx1 && depth == 1) {
                             optimalFrom = from;
@@ -137,8 +137,8 @@ public class MiniMax extends Player {
 
                         }
                         mn1 = Math.min(mn1,
-                                getMiniMax(makeChangesSecond(a, b, from, to, dice1, dice2, true),
-                                        makeChangesFirst(a, b, from, to, dice1, dice2, false), depth - 1, mapSz,
+                                getMiniMax(makeChangesSecond(a.getCopy(), b.getCopy(), from, to, dice1, dice2, true),
+                                        makeChangesFirst(a.getCopy(), b.getCopy(), from, to, dice1, dice2, false), depth - 1, mapSz,
                                         pathProbability * (1.0 - getDiceProbability(dice1, dice2)), !isMax));
 
                     }
