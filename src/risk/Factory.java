@@ -36,6 +36,9 @@ public class Factory { /// returns instance of the agent we want
                 case "Human":
                 	ret = new Human();
                 	break;
+                case "RealTime A*" :
+                	ret = new AstarRealTime();
+                	break;
                 default:
                     break;
             }

@@ -42,19 +42,18 @@ public class GameSimulator  {
     }
 
     void play() {  /// called by the gui , simulates one turn only
-    	if(first.territories.size() > mapSizeplz*6/10) {
-    		  System.out.println("Player one has 70% of territories , he wins \n");
-    		  System.out.println("Performance measurement1 = turns  + expansions\n");
-    		  System.out.println("Performance measurement1 = turns*100  + expansions\n");
-    		  System.out.println("Performance measurement1 = turns*10000  + expansions\n");
-    		  System.exit(0);
+    	if(first.territories.size() > mapSizeplz*7/10) {
+   		  System.out.println( second.me + " has 70% of territories , he wins \n");
+  		  System.out.println("Performance measurement1 = " + turns  + second.expansions + "\n");
+  		  System.out.println("Performance measurement1 = " + turns*100  + second.expansions + "\n");
+  		  //System.out.println("Performance measurement1 = " + turns*10000  + second.expansions + "\n");
     	}
-    	if(second.territories.size() > mapSizeplz*6/10) {
-  		  System.out.println("Player two has 70% of territories , he wins \n");
-		  System.out.println("Performance measurement1 = turns  + expansions\n");
-		  System.out.println("Performance measurement1 = turns*100  + expansions\n");
-		  System.out.println("Performance measurement1 = turns*10000  + expansions\n");
-  		  System.exit(0);
+    	if(second.territories.size() > mapSizeplz*7/10) {
+  		  System.out.println( second.me + " has 70% of territories , he wins \n");
+		  System.out.println("Performance measurement1 = " + turns  + second.expansions + "\n");
+		  System.out.println("Performance measurement1 = " + turns*100  + second.expansions + "\n");
+		  System.out.println("Performance measurement1 = " + turns*10000  + second.expansions + "\n");
+  		//  System.exit(0);
   	    }
     	if(firstPlay == false){
             firstPlay = true;
