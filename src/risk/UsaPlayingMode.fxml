@@ -463,7 +463,7 @@
             </RadialGradient>
          </fill>
       </Circle>
-      <Circle fx:id="circ32" layoutX="492.0" layoutY="189.0" onMouseClicked="#getNonNeighboursBlocked" radius="5.0" stroke="BLACK" strokeType="INSIDE">
+      <Circle fx:id="circ31" layoutX="492.0" layoutY="189.0" onMouseClicked="#getNonNeighboursBlocked" radius="5.0" stroke="BLACK" strokeType="INSIDE">
          <fill>
             <RadialGradient centerX="0.4722222222222222" centerY="0.5047619047619047" radius="0.43023255813953487">
                <stops>
