@@ -27,6 +27,7 @@ import javafx.scene.paint.Color;
 
 public abstract class Player {
 
+	String me;
     static final int EGYPT_TERRITORIES = 27;
     static final int USA_TERRITORIES = 50;
     boolean turn;
@@ -37,6 +38,7 @@ public abstract class Player {
     ArrayList<Integer> firstPlayerDice = new ArrayList<Integer>();
     ArrayList<Integer> secondPlayerDice = new ArrayList<Integer>();
     boolean callDistribute = true;
+    int expansions = 0;
     /// aho ya hassan
     public static int myDice = -1 , opponentDice = -1 , distributeIndex = -1 , attackFromIndex = -1 , attackToIndex = -1;
     ///
@@ -147,7 +149,19 @@ public abstract class Player {
 
         return false;
     }
-
+    public Player getCopy() {
+    	Player x = Factory.getPlayer(this.me);
+    	
+    	for(int i=0;i<territories.size();i++) {
+    		x.territories.add(this.territories.get(i));
+    	}
+    	for(int i=0;i<soldier_of_each_territory.length;i++) {
+    		x.soldier_of_each_territory[i] = this.soldier_of_each_territory[i];
+    	}
+    	
+    	return x;
+    	
+    }
     public abstract void distribute_soldiers(int k);
     
     public abstract void distribute_soldiers(int k,Player a);

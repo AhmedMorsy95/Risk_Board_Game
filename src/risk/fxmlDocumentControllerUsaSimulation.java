@@ -247,7 +247,7 @@ public class fxmlDocumentControllerUsaSimulation implements Initializable {
 
     @FXML
     public void yalla(MouseEvent action) {
-        riskUSA.play();
+    	riskUSA.play();
         //printing soldiers
         System.out.println("Attacking Mode");
         for (int i = 0; i < GameSimulator.first.soldier_of_each_territory.length; i++) {

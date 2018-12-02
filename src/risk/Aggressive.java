@@ -20,6 +20,7 @@ public class Aggressive extends Player {
             soldier_of_each_territory[i++] = 0;
         }
         callDistribute = true;  
+        me = new String("Aggressive"); 
     }
 
     /*An aggressive agent, that always places all its bonus armies on the territory with

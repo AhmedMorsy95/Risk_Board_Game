@@ -144,7 +144,7 @@ public class Greedy extends Player {
 
     @Override
     public void simulate_attack(Player opponent, int mapSz) {
-        int index = heuristic(opponent, mapSz);
+        int index = heuristic(this, mapSz);
         int attackFrom = -1, attackTo = -1, a = 0, b = 0;
 
         for (int i = 0; i < territories.size(); i++) {
@@ -167,6 +167,7 @@ public class Greedy extends Player {
                 }
             }
         }
+        expansions++;
         if (attackFrom != -1) {
             fightStart(this, opponent, Math.min(3, this.soldier_of_each_territory[attackFrom] - 1), 1, attackFrom, attackTo);
         } else {
@@ -187,7 +188,6 @@ public class Greedy extends Player {
 
     @Override
     public void distribute_soldiers(int k, Player a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

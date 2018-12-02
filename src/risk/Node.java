@@ -5,18 +5,24 @@
  */
 package risk;
 
+import java.util.Comparator;
+
 /**
  *
  * @author smsm
  */
-public class Node {
+public class Node{
 
     Player one, two;
     int cost;
-
+    Node(){
+    	
+    }
     Node(Player a, Player b, int c) {
         one = a;
         two = b;
         cost = c;
     }
+
+
 }

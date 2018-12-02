@@ -13,24 +13,39 @@ public class Factory { /// returns instance of the agent we want
 
     static Player getPlayer(String s) {
         if (null != s) {
+        	Player ret = null;
             switch (s) {
                 case "Passive":
-                    return new Passive();
+                    ret = new Passive();
+                    break;
                 case "Aggressive":
-                    return new Aggressive();
+                	ret = new Aggressive();
+                	break;
                 case "Pacifist":
-                    return new Pacifist();
+                	ret = new Pacifist();
+                	break;
                 case "Greedy":
-                    return new Greedy();
+                	ret = new Greedy();
+                	break;
                 case "Minimax":
-                    return new MiniMax();
+                	ret = new MiniMax();
+                	break;
                 case "A_Star":
-                	return new AggressiveVsAStar();
+                	ret = new AggressiveVsAStar();
+                	break;
                 case "Human":
-                	return new Human();
+                	ret = new Human();
+                	break;
                 default:
                     break;
             }
+           if(s.equals("Human")) return ret; 
+             ret.me = new String(s);
+             if(s != "Human") {
+            	 ret.callDistribute = true;
+             }
+            
+            return ret;
         }
         return null;
     }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import javafx.scene.control.Alert;
 import javafx.scene.paint.Color;
 
 public class GameSimulator  {
@@ -18,6 +19,7 @@ public class GameSimulator  {
     static MatchStatus status;
     boolean firstPlay = false;
     static int mapSizeplz;
+    static int turns = 0;
     GameSimulator(String a, String b, int nTerritories, int extra) {  /// constructor ,  sets the game initial conditions
         mapSizeplz = nTerritories;
     	first = Factory.getPlayer(a);
@@ -34,17 +36,31 @@ public class GameSimulator  {
         /// now we have 2 instances , randomly distribute territories
         randomDistributeTerritories(nTerritories);
         randomDistributeExrta(extra);
-        System.out.print(a + " " + b + " " + first.callDistribute + " " + second.callDistribute + "hamada\n");
+        System.out.print(a + " " + b + " " + first.callDistribute + " " + second.callDistribute + first.me + "\n");
         /// now we distributed territories and extra soldiers
         /// we are ready to play!
     }
 
     void play() {  /// called by the gui , simulates one turn only
-    	
+    	if(first.territories.size() > mapSizeplz*6/10) {
+    		  System.out.println("Player one has 70% of territories , he wins \n");
+    		  System.out.println("Performance measurement1 = turns  + expansions\n");
+    		  System.out.println("Performance measurement1 = turns*100  + expansions\n");
+    		  System.out.println("Performance measurement1 = turns*10000  + expansions\n");
+    		  System.exit(0);
+    	}
+    	if(second.territories.size() > mapSizeplz*6/10) {
+  		  System.out.println("Player two has 70% of territories , he wins \n");
+		  System.out.println("Performance measurement1 = turns  + expansions\n");
+		  System.out.println("Performance measurement1 = turns*100  + expansions\n");
+		  System.out.println("Performance measurement1 = turns*10000  + expansions\n");
+  		  System.exit(0);
+  	    }
     	if(firstPlay == false){
             firstPlay = true;
             return;
         }
+    	turns++;
         if (first.turn) {
             if(first.callDistribute)
             first.distribute_soldiers(first.getBonusSoldiers());

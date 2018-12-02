@@ -61,8 +61,8 @@ public class AstarRealTime extends Player {
 
     public void go(Player aggressive, int mapSz) {
         Node cur = new Node(this, aggressive, 0);
-        PriorityQueue<Node> pq = new PriorityQueue<Node>();
 
+        PriorityQueue<Node> pq = new PriorityQueue<Node>(new NodeComparator());
         pq.add(cur);
 
         while (!pq.isEmpty()) {
@@ -71,6 +71,7 @@ public class AstarRealTime extends Player {
             if(visited.contains(cur)) {
             	continue;
             }
+            expansions++;
             visited.add(cur);
             int indexOfTerritory;
             for (int i = 0; i < cur.one.territories.size(); i++) {
